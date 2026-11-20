@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>case-library · gallery</title>
 <!--
-  No build step. Preact components written with htm (tagged templates instead of JSX) and
-  Tailwind's browser build, both from jsDelivr at pinned versions. The data is cases.js,
+  No build step. React components written with htm (tagged templates instead of JSX), React from
+  esm.sh and Tailwind's browser build from jsDelivr, all at pinned versions (import map below). The data is cases.js,
   written by tools/gallery.py from index.json. Edit this file by hand; never edit cases.js.
 -->
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.5"></script>
@@ -28,19 +28,31 @@
   @utility eyebrow { @apply text-[.78rem] font-[650] uppercase tracking-[.12em] text-soft; }
 </style>
 <script src="cases.js"></script>
+<script type="importmap">
+{ "imports": {
+  "react": "https://esm.sh/react@19.3.1",
+  "react-dom/client": "https://esm.sh/react-dom@19.3.1/client?deps=react@19.3.1",
+  "htm": "https://esm.sh/htm@3.1.1"
+} }
+</script>
+
 </head>
 <body>
 <div id="app">
   <noscript>
     <main style="max-width:60ch;margin:3rem auto;padding:0 1rem">
-      This gallery needs JavaScript: Preact and Tailwind load from jsDelivr. The same list is in
+      This gallery needs JavaScript: React and Tailwind load from a CDN. The same list is in
       <a href="../index.json">index.json</a> and the Cases table of <a href="../README.md">README.md</a>.
     </main>
   </noscript>
 </div>
 
 <script type="module">
-import { html, render, useState, useMemo } from "https://cdn.jsdelivr.net/npm/htm@3.1.1/preact/standalone.module.js";
+import React, { useState, useMemo } from "react";
+import { createRoot } from "react-dom/client";
+import htm from "htm";
+
+const html = htm.bind(React.createElement);
 
 const REPO = "https://github.com/dustboy-kit/case-library";
 
@@ -65,27 +77,27 @@ const num = (n) => String(n).padStart(3, "0");
 // "DustBoy Kit case: PMS7003 + XIAO" -> ["DustBoy Kit case", "PMS7003 + XIAO"], shown as "a / b".
 function Title({ name, id }) {
   const [a, b] = (name || id).split(/:\s+/, 2);
-  return html`<h2 class="mt-0.5 mb-2 text-[1.07rem] font-[610] leading-snug">
-    ${a}${b ? html` <span class="font-normal text-soft">/</span> ${b}` : null}</h2>`;
+  return html`<h2 className="mt-0.5 mb-2 text-[1.07rem] font-[610] leading-snug">
+    ${a}${b ? html` <span className="font-normal text-soft">/</span> ${b}` : null}</h2>`;
 }
 
 function Status({ c }) {
   const s = statusOf(c.status);
-  return html`<p class="m-0 mb-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[.85rem]">
-    <span class="inline-flex items-center gap-1.5 font-medium ${s.text}" title=${s.proof}>
-      <span class="size-2 rounded-full ${s.dot}"></span>${s.id}</span>
-    <span class="text-soft">${c.printed ? "printed" : "not printed yet"}</span>
-    ${c.outer_mm ? html`<span class="text-soft tabular-nums">${c.outer_mm.join(" × ")} mm</span>` : null}
+  return html`<p className="m-0 mb-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[.85rem]">
+    <span className="inline-flex items-center gap-1.5 font-medium ${s.text}" title=${s.proof}>
+      <span className="size-2 rounded-full ${s.dot}"></span>${s.id}</span>
+    <span className="text-soft">${c.printed ? "printed" : "not printed yet"}</span>
+    ${c.outer_mm ? html`<span className="text-soft tabular-nums">${c.outer_mm.join(" × ")} mm</span>` : null}
   </p>`;
 }
 
 function Preview({ c, f }) {
   if (c.preview && f.local) {
     const src = f.base + c.preview;
-    return html`<a href=${src} aria-label=${"Full preview: " + c.id} class="block bg-shot">
-      <img src=${src} loading="lazy" width="1600" height="1200" alt=${c.name || c.id} class="block aspect-[4/3] h-auto w-full object-cover" /></a>`;
+    return html`<a href=${src} aria-label=${"Full preview: " + c.id} className="block bg-shot">
+      <img src=${src} loading="lazy" width="1600" height="1200" alt=${c.name || c.id} className="block aspect-[4/3] h-auto w-full object-cover" /></a>`;
   }
-  return html`<a href=${f.home} class="grid aspect-[4/3] place-items-center bg-shot text-sm text-stone-500">
+  return html`<a href=${f.home} className="grid aspect-[4/3] place-items-center bg-shot text-sm text-stone-500">
     ${c.preview ? "preview in the case's own repo ↗" : "no preview"}</a>`;
 }
 
@@ -97,33 +109,33 @@ function Links({ c, f }) {
     ...(c.viewer ? [{ href: f.base + c.viewer, label: "viewer" }] : []),
   ];
   if (!links.length) links.push({ href: f.home, label: "repo ↗" });
-  return html`<nav class="flex flex-wrap gap-x-3 gap-y-0.5 text-[.92rem]">
+  return html`<nav className="flex flex-wrap gap-x-3 gap-y-0.5 text-[.92rem]">
     ${links.map((l) => html`<a href=${l.href} download=${l.dl ? fileName(l.href) : undefined}>${l.label}</a>`)}
   </nav>`;
 }
 
 function Details({ c, f }) {
   const hw = c.hardware || [];
-  return html`<details class="group mt-3 border-t border-line pt-2 text-[.85rem]">
-    <summary class="cursor-pointer list-none text-soft marker:hidden select-none">
-      <span class="eyebrow !text-[.7rem]">Holds ${hw.length} part${hw.length === 1 ? "" : "s"} · ${c.license || "no license"}</span>
-      <span class="ml-1 inline-block text-soft transition group-open:rotate-90">›</span></summary>
-    ${c.summary ? html`<p class="mt-2 mb-2 text-soft">${c.summary}</p>` : null}
-    <ul class="m-0 mb-2 list-none space-y-1 p-0">
+  return html`<details className="group mt-3 border-t border-line pt-2 text-[.85rem]">
+    <summary className="cursor-pointer list-none text-soft marker:hidden select-none">
+      <span className="eyebrow !text-[.7rem]">Holds ${hw.length} part${hw.length === 1 ? "" : "s"} · ${c.license || "no license"}</span>
+      <span className="ml-1 inline-block text-soft transition group-open:rotate-90">›</span></summary>
+    ${c.summary ? html`<p className="mt-2 mb-2 text-soft">${c.summary}</p>` : null}
+    <ul className="m-0 mb-2 list-none space-y-1 p-0">
       ${hw.map((h) => html`<li>${h.part}
-        <span class="whitespace-nowrap ${h.size_source === "photo-estimate" ? "text-amber-700 dark:text-amber-300" : "text-soft"}"
+        <span className="whitespace-nowrap ${h.size_source === "photo-estimate" ? "text-amber-700 dark:text-amber-300" : "text-soft"}"
           title="where the size came from"> · ${h.size_mm ? h.size_mm.join("×") + " · " : ""}${h.size_source}</span></li>`)}
     </ul>
-    <p class="m-0 text-soft">${[c.version && "v" + c.version, (c.authors || []).join(", ")].filter(Boolean).join(" · ")}${" · "}<a href=${f.home}>${f.local ? "case folder" : "repo ↗"}</a></p>
+    <p className="m-0 text-soft">${[c.version && "v" + c.version, (c.authors || []).join(", ")].filter(Boolean).join(" · ")}${" · "}<a href=${f.home}>${f.local ? "case folder" : "repo ↗"}</a></p>
   </details>`;
 }
 
 function CaseCard({ c, n }) {
   const f = filesOf(c);
-  return html`<article class="overflow-hidden rounded-[7px] border border-line bg-panel" data-status=${c.status}>
+  return html`<article className="overflow-hidden rounded-[7px] border border-line bg-panel" data-status=${c.status}>
     <${Preview} c=${c} f=${f} />
-    <div class="px-4 pt-3 pb-4">
-      <small class="eyebrow">№ ${num(n)}</small>
+    <div className="px-4 pt-3 pb-4">
+      <small className="eyebrow">№ ${num(n)}</small>
       <${Title} name=${c.name} id=${c.id} />
       <${Status} c=${c} />
       <${Links} c=${c} f=${f} />
@@ -136,34 +148,46 @@ function CaseCard({ c, n }) {
 function VariantCard({ c, v }) {
   const f = filesOf(c);
   const shot = v.preview ? { ...c, preview: v.preview, id: c.id + "-" + v.id, name: v.name } : c;
-  return html`<article class="overflow-hidden rounded-[7px] border border-line bg-panel" data-status=${c.status}>
+  return html`<article className="overflow-hidden rounded-[7px] border border-line bg-panel" data-status=${c.status}>
     <${Preview} c=${shot} f=${f} />
-    <div class="px-4 pt-3 pb-4">
-      <small class="eyebrow">№ ${v.id}</small>
-      <h2 class="mt-0.5 mb-2 text-[1.07rem] font-[610] leading-snug">${v.name.replace(" / ", "\u00a0/ ")}</h2>
+    <div className="px-4 pt-3 pb-4">
+      <small className="eyebrow">№ ${v.id}</small>
+      <h2 className="mt-0.5 mb-2 text-[1.07rem] font-[610] leading-snug">${v.name.replace(" / ", "\u00a0/ ")}</h2>
       <${Status} c=${{ ...c, outer_mm: null }} />
-      <nav class="flex flex-wrap gap-x-3 gap-y-0.5 text-[.92rem]">
+      <nav className="flex flex-wrap gap-x-3 gap-y-0.5 text-[.92rem]">
         <a href=${f.base + v.stl} download=${f.local ? `${c.id}-${v.id}.stl` : undefined}>STL · lid + base ↓</a>
       </nav>
-      <p class="m-0 mt-3 border-t border-line pt-2 text-[.8rem] text-soft">from <a href=${f.home}>${c.id}</a></p>
+      <p className="m-0 mt-3 border-t border-line pt-2 text-[.8rem] text-soft">from <a href=${f.home}>${c.id}</a></p>
     </div>
   </article>`;
 }
 
 function Select({ label, value, onChange, children }) {
-  return html`<label class="flex items-center gap-[.4rem]">${label}
+  return html`<label className="flex items-center gap-[.4rem]">${label}
     <select value=${value} onChange=${(e) => onChange(e.currentTarget.value)}
-      class="rounded border border-line bg-panel p-[.4rem] text-ink">${children}</select></label>`;
+      className="rounded border border-line bg-panel p-[.4rem] text-ink">${children}</select></label>`;
+}
+
+// Pastel = a soft colour: low saturation, high lightness (HSL), from the variant's `color`.
+function isPastel(hex) {
+  if (!/^#[0-9a-f]{6}$/i.test(hex || "")) return false;
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+  const max = Math.max(r, g, b), min = Math.min(r, g, b), l = (max + min) / 2;
+  const s = max === min ? 0 : (max - min) / (1 - Math.abs(2 * l - 1));
+  return s < 0.3 && l > 0.55;
 }
 
 function App({ data }) {
   const cases = data.cases;
   // A case with `variants` shows one card per variant; plain cases come first.
-  const items = useMemo(() => [
-    ...cases.filter((c) => !c.variants?.length).map((c) => ({ key: c.id, c, tags: c.tags || [] })),
-    ...cases.filter((c) => c.variants?.length).flatMap((c) =>
-      c.variants.map((v) => ({ key: c.id + "/" + v.id, c, v, tags: [...(c.tags || []), ...(v.tags || [])] }))),
-  ], [cases]);
+  // Order: pastel-coloured variants first (Nat, 2026-11-20: "bring pastel on top"), then plain
+  // cases, then the other variants. Each group keeps its index order.
+  const items = useMemo(() => {
+    const variants = cases.filter((c) => c.variants?.length).flatMap((c) =>
+      c.variants.map((v) => ({ key: c.id + "/" + v.id, c, v, tags: [...(c.tags || []), ...(v.tags || []), ...(isPastel(v.color) ? ["pastel"] : [])] })));
+    const plain = cases.filter((c) => !c.variants?.length).map((c) => ({ key: c.id, c, tags: c.tags || [] }));
+    return [...variants.filter((i) => isPastel(i.v.color)), ...plain, ...variants.filter((i) => !isPastel(i.v.color))];
+  }, [cases]);
   const [status, setStatus] = useState("");
   const [tag, setTag] = useState("");
   const [only, setOnly] = useState("");
@@ -177,12 +201,12 @@ function App({ data }) {
     (notPrinted === cases.length ? "None has been printed yet."
       : notPrinted ? `${notPrinted} of them have not been printed yet.` : "");
 
-  return html`<main class="mx-auto max-w-[1440px] p-[clamp(16px,4vw,60px)]">
-    <header class="max-w-[960px]">
-      <div class="eyebrow">dustboy-kit / case-library</div>
-      <h1 class="my-[.22em] text-[clamp(2.3rem,6vw,5.2rem)] font-bold leading-none tracking-[-.06em]">Small kits.<br />Cases to print.</h1>
-      <p class="max-w-[80ch] text-soft">${intro}</p>
-      <nav class="mt-5 mb-8 flex flex-wrap gap-x-5 gap-y-2">
+  return html`<main className="mx-auto max-w-[1440px] p-[clamp(16px,4vw,60px)]">
+    <header className="max-w-[960px]">
+      <div className="eyebrow">dustboy-kit / case-library</div>
+      <h1 className="my-[.22em] text-[clamp(2.3rem,6vw,5.2rem)] font-bold leading-none tracking-[-.06em]">Small kits.<br />Cases to print.</h1>
+      <p className="max-w-[80ch] text-soft">${intro}</p>
+      <nav className="mt-5 mb-8 flex flex-wrap gap-x-5 gap-y-2">
         <a href="../index.json" download>index.json ↓</a>
         <a href="../case.schema.json">case.schema.json</a>
         <a href="../CONTRIBUTING.md">Add a case</a>
@@ -191,7 +215,7 @@ function App({ data }) {
       </nav>
     </header>
 
-    <div class="mb-[1.3rem] flex flex-wrap items-center gap-x-5 gap-y-[.6rem] border-y border-line py-4">
+    <div className="mb-[1.3rem] flex flex-wrap items-center gap-x-5 gap-y-[.6rem] border-y border-line py-4">
       <${Select} label="Status" value=${status} onChange=${setStatus}>
         <option value="">All statuses</option>
         ${LADDER.map((s) => html`<option value=${s.id}>${s.id} (${items.filter((i) => i.c.status === s.id).length})</option>`)}
@@ -204,24 +228,24 @@ function App({ data }) {
         <option value="">All tags</option>
         ${tags.map((t) => html`<option value=${t}>${t}</option>`)}
       <//>
-      <output aria-live="polite" class="text-soft">${plural(shown.length, "design")}</output>
+      <output aria-live="polite" className="text-soft">${plural(shown.length, "design")}</output>
     </div>
 
     ${shown.length
-      ? html`<section aria-label="Cases" class="grid grid-cols-[repeat(auto-fill,minmax(min(235px,100%),1fr))] items-start gap-4">
+      ? html`<section aria-label="Cases" className="grid grid-cols-[repeat(auto-fill,minmax(min(235px,100%),1fr))] items-start gap-4">
           ${shown.map((i) => i.v ? html`<${VariantCard} key=${i.key} c=${i.c} v=${i.v} />` : html`<${CaseCard} key=${i.key} c=${i.c} n=${items.filter((x) => !x.v).indexOf(i) + 1} />`)}
         </section>`
-      : html`<p class="text-soft">No case matches.</p>`}
+      : html`<p className="text-soft">No case matches.</p>`}
 
-    <footer class="mt-12 border-t border-line pt-4 text-xs text-soft">
-      Data: <code>gallery/cases.js</code>, written by <code>tools/gallery.py</code> from <code>index.json</code>.${" "}Page: Preact components via htm 3.1.1 and Tailwind 4.3.5 from jsDelivr, no build step.
+    <footer className="mt-12 border-t border-line pt-4 text-xs text-soft">
+      Data: <code>gallery/cases.js</code>, written by <code>tools/gallery.py</code> from <code>index.json</code>.${" "}Page: React 19.3.1 components via htm 3.1.1 (esm.sh) and Tailwind 4.3.5 (jsDelivr), no build step.
     </footer>
   </main>`;
 }
 
 const root = document.getElementById("app");
 if (window.CASE_INDEX?.cases) {
-  render(html`<${App} data=${window.CASE_INDEX} />`, root);
+  createRoot(root).render(html`<${App} data=${window.CASE_INDEX} />`);
 } else {
   root.innerHTML = '<p style="padding:2rem">cases.js is missing. Run <code>python3 tools/gallery.py</code>.</p>';
 }

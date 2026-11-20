@@ -53,7 +53,8 @@
         "required": ["id", "name", "stl"],
         "properties": {
           "id": { "type": "string" }, "name": { "type": "string" }, "preview": { "type": "string" },
-          "stl": { "type": "string" }, "tags": { "type": "array", "items": { "type": "string" } }
+          "stl": { "type": "string" },
+          "color": { "type": "string", "description": "Print colour of this variant, #rrggbb." }, "tags": { "type": "array", "items": { "type": "string" } }
         }
       }
     },

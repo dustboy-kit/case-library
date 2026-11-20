@@ -72,7 +72,7 @@ tools/render.sh cases/<id>           # every print part exports, the fit check p
 python3 -m http.server -b 127.0.0.1 8000    # then open http://127.0.0.1:8000/gallery/
 ```
 
-Opening the file straight from disk works too. The page is Preact components with no build step; Preact and Tailwind load from a CDN (jsDelivr) at pinned versions. Its data lives in `gallery/cases.js`, written by `tools/gallery.py` from `index.json`. CI fails when that file or the README table is stale.
+Opening the file straight from disk works too. The page is React components (written with htm, no JSX) with no build step; React loads from esm.sh and Tailwind from jsDelivr, at pinned versions. Pastel-coloured variants are listed first. Its data lives in `gallery/cases.js`, written by `tools/gallery.py` from `index.json`. CI fails when that file or the README table is stale.
 
 Other issue forms:
 - **Request a case**: you have hardware and need a case drawn.

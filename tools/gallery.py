@@ -5,7 +5,7 @@
   python3 tools/gallery.py --readme   # also rewrite the Cases table in README.md
   python3 tools/gallery.py --check    # fail if gallery/cases.js or the README table is stale (CI)
 
-The page itself, gallery/index.html, is hand-written Preact components with no build step.
+The page itself, gallery/index.html, is hand-written React components (htm, no JSX) with no build step.
 It reads the data this script writes into gallery/cases.js. A <script src> file (not a fetch
 of index.json) keeps the page working when it is opened straight from disk (file://).
 

@@ -119,7 +119,8 @@ window.CASE_INDEX = {
           "tags": [
             "datum",
             "parallel"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "002",
@@ -129,7 +130,8 @@ window.CASE_INDEX = {
           "tags": [
             "datum",
             "constellation"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "003",
@@ -139,7 +141,8 @@ window.CASE_INDEX = {
           "tags": [
             "datum",
             "sunburst"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "004",
@@ -149,7 +152,8 @@ window.CASE_INDEX = {
           "tags": [
             "datum",
             "honeycomb"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "005",
@@ -159,7 +163,8 @@ window.CASE_INDEX = {
           "tags": [
             "datum",
             "chevron"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "006",
@@ -169,7 +174,8 @@ window.CASE_INDEX = {
           "tags": [
             "datum",
             "arc"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "007",
@@ -179,7 +185,8 @@ window.CASE_INDEX = {
           "tags": [
             "datum",
             "lozenge"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "008",
@@ -189,7 +196,8 @@ window.CASE_INDEX = {
           "tags": [
             "datum",
             "wave"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "009",
@@ -199,7 +207,8 @@ window.CASE_INDEX = {
           "tags": [
             "datum",
             "terrace"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "010",
@@ -209,7 +218,8 @@ window.CASE_INDEX = {
           "tags": [
             "datum",
             "switchback"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "011",
@@ -219,7 +229,8 @@ window.CASE_INDEX = {
           "tags": [
             "pebble",
             "parallel"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "012",
@@ -229,7 +240,8 @@ window.CASE_INDEX = {
           "tags": [
             "pebble",
             "constellation"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "013",
@@ -239,7 +251,8 @@ window.CASE_INDEX = {
           "tags": [
             "pebble",
             "sunburst"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "014",
@@ -249,7 +262,8 @@ window.CASE_INDEX = {
           "tags": [
             "pebble",
             "honeycomb"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "015",
@@ -259,7 +273,8 @@ window.CASE_INDEX = {
           "tags": [
             "pebble",
             "chevron"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "016",
@@ -269,7 +284,8 @@ window.CASE_INDEX = {
           "tags": [
             "pebble",
             "arc"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "017",
@@ -279,7 +295,8 @@ window.CASE_INDEX = {
           "tags": [
             "pebble",
             "lozenge"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "018",
@@ -289,7 +306,8 @@ window.CASE_INDEX = {
           "tags": [
             "pebble",
             "wave"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "019",
@@ -299,7 +317,8 @@ window.CASE_INDEX = {
           "tags": [
             "pebble",
             "terrace"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "020",
@@ -309,7 +328,8 @@ window.CASE_INDEX = {
           "tags": [
             "pebble",
             "switchback"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "021",
@@ -319,7 +339,8 @@ window.CASE_INDEX = {
           "tags": [
             "bumper",
             "parallel"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "022",
@@ -329,7 +350,8 @@ window.CASE_INDEX = {
           "tags": [
             "bumper",
             "constellation"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "023",
@@ -339,7 +361,8 @@ window.CASE_INDEX = {
           "tags": [
             "bumper",
             "sunburst"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "024",
@@ -349,7 +372,8 @@ window.CASE_INDEX = {
           "tags": [
             "bumper",
             "honeycomb"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "025",
@@ -359,7 +383,8 @@ window.CASE_INDEX = {
           "tags": [
             "bumper",
             "chevron"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "026",
@@ -369,7 +394,8 @@ window.CASE_INDEX = {
           "tags": [
             "bumper",
             "arc"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "027",
@@ -379,7 +405,8 @@ window.CASE_INDEX = {
           "tags": [
             "bumper",
             "lozenge"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "028",
@@ -389,7 +416,8 @@ window.CASE_INDEX = {
           "tags": [
             "bumper",
             "wave"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "029",
@@ -399,7 +427,8 @@ window.CASE_INDEX = {
           "tags": [
             "bumper",
             "terrace"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "030",
@@ -409,7 +438,8 @@ window.CASE_INDEX = {
           "tags": [
             "bumper",
             "switchback"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "031",
@@ -419,7 +449,8 @@ window.CASE_INDEX = {
           "tags": [
             "thumb",
             "parallel"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "032",
@@ -429,7 +460,8 @@ window.CASE_INDEX = {
           "tags": [
             "thumb",
             "constellation"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "033",
@@ -439,7 +471,8 @@ window.CASE_INDEX = {
           "tags": [
             "thumb",
             "sunburst"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "034",
@@ -449,7 +482,8 @@ window.CASE_INDEX = {
           "tags": [
             "thumb",
             "honeycomb"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "035",
@@ -459,7 +493,8 @@ window.CASE_INDEX = {
           "tags": [
             "thumb",
             "chevron"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "036",
@@ -469,7 +504,8 @@ window.CASE_INDEX = {
           "tags": [
             "thumb",
             "arc"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "037",
@@ -479,7 +515,8 @@ window.CASE_INDEX = {
           "tags": [
             "thumb",
             "lozenge"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "038",
@@ -489,7 +526,8 @@ window.CASE_INDEX = {
           "tags": [
             "thumb",
             "wave"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "039",
@@ -499,7 +537,8 @@ window.CASE_INDEX = {
           "tags": [
             "thumb",
             "terrace"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "040",
@@ -509,7 +548,8 @@ window.CASE_INDEX = {
           "tags": [
             "thumb",
             "switchback"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "041",
@@ -519,7 +559,8 @@ window.CASE_INDEX = {
           "tags": [
             "loop",
             "parallel"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "042",
@@ -529,7 +570,8 @@ window.CASE_INDEX = {
           "tags": [
             "loop",
             "constellation"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "043",
@@ -539,7 +581,8 @@ window.CASE_INDEX = {
           "tags": [
             "loop",
             "sunburst"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "044",
@@ -549,7 +592,8 @@ window.CASE_INDEX = {
           "tags": [
             "loop",
             "honeycomb"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "045",
@@ -559,7 +603,8 @@ window.CASE_INDEX = {
           "tags": [
             "loop",
             "chevron"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "046",
@@ -569,7 +614,8 @@ window.CASE_INDEX = {
           "tags": [
             "loop",
             "arc"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "047",
@@ -579,7 +625,8 @@ window.CASE_INDEX = {
           "tags": [
             "loop",
             "lozenge"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "048",
@@ -589,7 +636,8 @@ window.CASE_INDEX = {
           "tags": [
             "loop",
             "wave"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "049",
@@ -599,7 +647,8 @@ window.CASE_INDEX = {
           "tags": [
             "loop",
             "terrace"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "050",
@@ -609,7 +658,8 @@ window.CASE_INDEX = {
           "tags": [
             "loop",
             "switchback"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "051",
@@ -619,7 +669,8 @@ window.CASE_INDEX = {
           "tags": [
             "bracket",
             "parallel"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "052",
@@ -629,7 +680,8 @@ window.CASE_INDEX = {
           "tags": [
             "bracket",
             "constellation"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "053",
@@ -639,7 +691,8 @@ window.CASE_INDEX = {
           "tags": [
             "bracket",
             "sunburst"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "054",
@@ -649,7 +702,8 @@ window.CASE_INDEX = {
           "tags": [
             "bracket",
             "honeycomb"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "055",
@@ -659,7 +713,8 @@ window.CASE_INDEX = {
           "tags": [
             "bracket",
             "chevron"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "056",
@@ -669,7 +724,8 @@ window.CASE_INDEX = {
           "tags": [
             "bracket",
             "arc"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "057",
@@ -679,7 +735,8 @@ window.CASE_INDEX = {
           "tags": [
             "bracket",
             "lozenge"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "058",
@@ -689,7 +746,8 @@ window.CASE_INDEX = {
           "tags": [
             "bracket",
             "wave"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "059",
@@ -699,7 +757,8 @@ window.CASE_INDEX = {
           "tags": [
             "bracket",
             "terrace"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "060",
@@ -709,7 +768,8 @@ window.CASE_INDEX = {
           "tags": [
             "bracket",
             "switchback"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "061",
@@ -719,7 +779,8 @@ window.CASE_INDEX = {
           "tags": [
             "rib",
             "parallel"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "062",
@@ -729,7 +790,8 @@ window.CASE_INDEX = {
           "tags": [
             "rib",
             "constellation"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "063",
@@ -739,7 +801,8 @@ window.CASE_INDEX = {
           "tags": [
             "rib",
             "sunburst"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "064",
@@ -749,7 +812,8 @@ window.CASE_INDEX = {
           "tags": [
             "rib",
             "honeycomb"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "065",
@@ -759,7 +823,8 @@ window.CASE_INDEX = {
           "tags": [
             "rib",
             "chevron"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "066",
@@ -769,7 +834,8 @@ window.CASE_INDEX = {
           "tags": [
             "rib",
             "arc"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "067",
@@ -779,7 +845,8 @@ window.CASE_INDEX = {
           "tags": [
             "rib",
             "lozenge"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "068",
@@ -789,7 +856,8 @@ window.CASE_INDEX = {
           "tags": [
             "rib",
             "wave"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "069",
@@ -799,7 +867,8 @@ window.CASE_INDEX = {
           "tags": [
             "rib",
             "terrace"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "070",
@@ -809,7 +878,8 @@ window.CASE_INDEX = {
           "tags": [
             "rib",
             "switchback"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "071",
@@ -819,7 +889,8 @@ window.CASE_INDEX = {
           "tags": [
             "facet",
             "parallel"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "072",
@@ -829,7 +900,8 @@ window.CASE_INDEX = {
           "tags": [
             "facet",
             "constellation"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "073",
@@ -839,7 +911,8 @@ window.CASE_INDEX = {
           "tags": [
             "facet",
             "sunburst"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "074",
@@ -849,7 +922,8 @@ window.CASE_INDEX = {
           "tags": [
             "facet",
             "honeycomb"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "075",
@@ -859,7 +933,8 @@ window.CASE_INDEX = {
           "tags": [
             "facet",
             "chevron"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "076",
@@ -869,7 +944,8 @@ window.CASE_INDEX = {
           "tags": [
             "facet",
             "arc"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "077",
@@ -879,7 +955,8 @@ window.CASE_INDEX = {
           "tags": [
             "facet",
             "lozenge"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "078",
@@ -889,7 +966,8 @@ window.CASE_INDEX = {
           "tags": [
             "facet",
             "wave"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "079",
@@ -899,7 +977,8 @@ window.CASE_INDEX = {
           "tags": [
             "facet",
             "terrace"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "080",
@@ -909,7 +988,8 @@ window.CASE_INDEX = {
           "tags": [
             "facet",
             "switchback"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "081",
@@ -919,7 +999,8 @@ window.CASE_INDEX = {
           "tags": [
             "scallop",
             "parallel"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "082",
@@ -929,7 +1010,8 @@ window.CASE_INDEX = {
           "tags": [
             "scallop",
             "constellation"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "083",
@@ -939,7 +1021,8 @@ window.CASE_INDEX = {
           "tags": [
             "scallop",
             "sunburst"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "084",
@@ -949,7 +1032,8 @@ window.CASE_INDEX = {
           "tags": [
             "scallop",
             "honeycomb"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "085",
@@ -959,7 +1043,8 @@ window.CASE_INDEX = {
           "tags": [
             "scallop",
             "chevron"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "086",
@@ -969,7 +1054,8 @@ window.CASE_INDEX = {
           "tags": [
             "scallop",
             "arc"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "087",
@@ -979,7 +1065,8 @@ window.CASE_INDEX = {
           "tags": [
             "scallop",
             "lozenge"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "088",
@@ -989,7 +1076,8 @@ window.CASE_INDEX = {
           "tags": [
             "scallop",
             "wave"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "089",
@@ -999,7 +1087,8 @@ window.CASE_INDEX = {
           "tags": [
             "scallop",
             "terrace"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "090",
@@ -1009,7 +1098,8 @@ window.CASE_INDEX = {
           "tags": [
             "scallop",
             "switchback"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "091",
@@ -1019,7 +1109,8 @@ window.CASE_INDEX = {
           "tags": [
             "keystone",
             "parallel"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "092",
@@ -1029,7 +1120,8 @@ window.CASE_INDEX = {
           "tags": [
             "keystone",
             "constellation"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "093",
@@ -1039,7 +1131,8 @@ window.CASE_INDEX = {
           "tags": [
             "keystone",
             "sunburst"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "094",
@@ -1049,7 +1142,8 @@ window.CASE_INDEX = {
           "tags": [
             "keystone",
             "honeycomb"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "095",
@@ -1059,7 +1153,8 @@ window.CASE_INDEX = {
           "tags": [
             "keystone",
             "chevron"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "096",
@@ -1069,7 +1164,8 @@ window.CASE_INDEX = {
           "tags": [
             "keystone",
             "arc"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "097",
@@ -1079,7 +1175,8 @@ window.CASE_INDEX = {
           "tags": [
             "keystone",
             "lozenge"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "098",
@@ -1089,7 +1186,8 @@ window.CASE_INDEX = {
           "tags": [
             "keystone",
             "wave"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "099",
@@ -1099,7 +1197,8 @@ window.CASE_INDEX = {
           "tags": [
             "keystone",
             "terrace"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "100",
@@ -1109,7 +1208,8 @@ window.CASE_INDEX = {
           "tags": [
             "keystone",
             "switchback"
-          ]
+          ],
+          "color": "#ccad96"
         }
       ],
       "hardware": [
