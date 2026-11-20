@@ -116,7 +116,8 @@
           "tags": [
             "datum",
             "parallel"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "002",
@@ -126,7 +127,8 @@
           "tags": [
             "datum",
             "constellation"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "003",
@@ -136,7 +138,8 @@
           "tags": [
             "datum",
             "sunburst"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "004",
@@ -146,7 +149,8 @@
           "tags": [
             "datum",
             "honeycomb"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "005",
@@ -156,7 +160,8 @@
           "tags": [
             "datum",
             "chevron"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "006",
@@ -166,7 +171,8 @@
           "tags": [
             "datum",
             "arc"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "007",
@@ -176,7 +182,8 @@
           "tags": [
             "datum",
             "lozenge"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "008",
@@ -186,7 +193,8 @@
           "tags": [
             "datum",
             "wave"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "009",
@@ -196,7 +204,8 @@
           "tags": [
             "datum",
             "terrace"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "010",
@@ -206,7 +215,8 @@
           "tags": [
             "datum",
             "switchback"
-          ]
+          ],
+          "color": "#e0ad32"
         },
         {
           "id": "011",
@@ -216,7 +226,8 @@
           "tags": [
             "pebble",
             "parallel"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "012",
@@ -226,7 +237,8 @@
           "tags": [
             "pebble",
             "constellation"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "013",
@@ -236,7 +248,8 @@
           "tags": [
             "pebble",
             "sunburst"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "014",
@@ -246,7 +259,8 @@
           "tags": [
             "pebble",
             "honeycomb"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "015",
@@ -256,7 +270,8 @@
           "tags": [
             "pebble",
             "chevron"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "016",
@@ -266,7 +281,8 @@
           "tags": [
             "pebble",
             "arc"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "017",
@@ -276,7 +292,8 @@
           "tags": [
             "pebble",
             "lozenge"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "018",
@@ -286,7 +303,8 @@
           "tags": [
             "pebble",
             "wave"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "019",
@@ -296,7 +314,8 @@
           "tags": [
             "pebble",
             "terrace"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "020",
@@ -306,7 +325,8 @@
           "tags": [
             "pebble",
             "switchback"
-          ]
+          ],
+          "color": "#b1bf9b"
         },
         {
           "id": "021",
@@ -316,7 +336,8 @@
           "tags": [
             "bumper",
             "parallel"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "022",
@@ -326,7 +347,8 @@
           "tags": [
             "bumper",
             "constellation"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "023",
@@ -336,7 +358,8 @@
           "tags": [
             "bumper",
             "sunburst"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "024",
@@ -346,7 +369,8 @@
           "tags": [
             "bumper",
             "honeycomb"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "025",
@@ -356,7 +380,8 @@
           "tags": [
             "bumper",
             "chevron"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "026",
@@ -366,7 +391,8 @@
           "tags": [
             "bumper",
             "arc"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "027",
@@ -376,7 +402,8 @@
           "tags": [
             "bumper",
             "lozenge"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "028",
@@ -386,7 +413,8 @@
           "tags": [
             "bumper",
             "wave"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "029",
@@ -396,7 +424,8 @@
           "tags": [
             "bumper",
             "terrace"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "030",
@@ -406,7 +435,8 @@
           "tags": [
             "bumper",
             "switchback"
-          ]
+          ],
+          "color": "#c5835b"
         },
         {
           "id": "031",
@@ -416,7 +446,8 @@
           "tags": [
             "thumb",
             "parallel"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "032",
@@ -426,7 +457,8 @@
           "tags": [
             "thumb",
             "constellation"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "033",
@@ -436,7 +468,8 @@
           "tags": [
             "thumb",
             "sunburst"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "034",
@@ -446,7 +479,8 @@
           "tags": [
             "thumb",
             "honeycomb"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "035",
@@ -456,7 +490,8 @@
           "tags": [
             "thumb",
             "chevron"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "036",
@@ -466,7 +501,8 @@
           "tags": [
             "thumb",
             "arc"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "037",
@@ -476,7 +512,8 @@
           "tags": [
             "thumb",
             "lozenge"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "038",
@@ -486,7 +523,8 @@
           "tags": [
             "thumb",
             "wave"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "039",
@@ -496,7 +534,8 @@
           "tags": [
             "thumb",
             "terrace"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "040",
@@ -506,7 +545,8 @@
           "tags": [
             "thumb",
             "switchback"
-          ]
+          ],
+          "color": "#94b9b7"
         },
         {
           "id": "041",
@@ -516,7 +556,8 @@
           "tags": [
             "loop",
             "parallel"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "042",
@@ -526,7 +567,8 @@
           "tags": [
             "loop",
             "constellation"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "043",
@@ -536,7 +578,8 @@
           "tags": [
             "loop",
             "sunburst"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "044",
@@ -546,7 +589,8 @@
           "tags": [
             "loop",
             "honeycomb"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "045",
@@ -556,7 +600,8 @@
           "tags": [
             "loop",
             "chevron"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "046",
@@ -566,7 +611,8 @@
           "tags": [
             "loop",
             "arc"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "047",
@@ -576,7 +622,8 @@
           "tags": [
             "loop",
             "lozenge"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "048",
@@ -586,7 +633,8 @@
           "tags": [
             "loop",
             "wave"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "049",
@@ -596,7 +644,8 @@
           "tags": [
             "loop",
             "terrace"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "050",
@@ -606,7 +655,8 @@
           "tags": [
             "loop",
             "switchback"
-          ]
+          ],
+          "color": "#cca164"
         },
         {
           "id": "051",
@@ -616,7 +666,8 @@
           "tags": [
             "bracket",
             "parallel"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "052",
@@ -626,7 +677,8 @@
           "tags": [
             "bracket",
             "constellation"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "053",
@@ -636,7 +688,8 @@
           "tags": [
             "bracket",
             "sunburst"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "054",
@@ -646,7 +699,8 @@
           "tags": [
             "bracket",
             "honeycomb"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "055",
@@ -656,7 +710,8 @@
           "tags": [
             "bracket",
             "chevron"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "056",
@@ -666,7 +721,8 @@
           "tags": [
             "bracket",
             "arc"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "057",
@@ -676,7 +732,8 @@
           "tags": [
             "bracket",
             "lozenge"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "058",
@@ -686,7 +743,8 @@
           "tags": [
             "bracket",
             "wave"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "059",
@@ -696,7 +754,8 @@
           "tags": [
             "bracket",
             "terrace"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "060",
@@ -706,7 +765,8 @@
           "tags": [
             "bracket",
             "switchback"
-          ]
+          ],
+          "color": "#a8b7c6"
         },
         {
           "id": "061",
@@ -716,7 +776,8 @@
           "tags": [
             "rib",
             "parallel"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "062",
@@ -726,7 +787,8 @@
           "tags": [
             "rib",
             "constellation"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "063",
@@ -736,7 +798,8 @@
           "tags": [
             "rib",
             "sunburst"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "064",
@@ -746,7 +809,8 @@
           "tags": [
             "rib",
             "honeycomb"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "065",
@@ -756,7 +820,8 @@
           "tags": [
             "rib",
             "chevron"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "066",
@@ -766,7 +831,8 @@
           "tags": [
             "rib",
             "arc"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "067",
@@ -776,7 +842,8 @@
           "tags": [
             "rib",
             "lozenge"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "068",
@@ -786,7 +853,8 @@
           "tags": [
             "rib",
             "wave"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "069",
@@ -796,7 +864,8 @@
           "tags": [
             "rib",
             "terrace"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "070",
@@ -806,7 +875,8 @@
           "tags": [
             "rib",
             "switchback"
-          ]
+          ],
+          "color": "#d7b773"
         },
         {
           "id": "071",
@@ -816,7 +886,8 @@
           "tags": [
             "facet",
             "parallel"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "072",
@@ -826,7 +897,8 @@
           "tags": [
             "facet",
             "constellation"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "073",
@@ -836,7 +908,8 @@
           "tags": [
             "facet",
             "sunburst"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "074",
@@ -846,7 +919,8 @@
           "tags": [
             "facet",
             "honeycomb"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "075",
@@ -856,7 +930,8 @@
           "tags": [
             "facet",
             "chevron"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "076",
@@ -866,7 +941,8 @@
           "tags": [
             "facet",
             "arc"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "077",
@@ -876,7 +952,8 @@
           "tags": [
             "facet",
             "lozenge"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "078",
@@ -886,7 +963,8 @@
           "tags": [
             "facet",
             "wave"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "079",
@@ -896,7 +974,8 @@
           "tags": [
             "facet",
             "terrace"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "080",
@@ -906,7 +985,8 @@
           "tags": [
             "facet",
             "switchback"
-          ]
+          ],
+          "color": "#a7b69c"
         },
         {
           "id": "081",
@@ -916,7 +996,8 @@
           "tags": [
             "scallop",
             "parallel"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "082",
@@ -926,7 +1007,8 @@
           "tags": [
             "scallop",
             "constellation"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "083",
@@ -936,7 +1018,8 @@
           "tags": [
             "scallop",
             "sunburst"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "084",
@@ -946,7 +1029,8 @@
           "tags": [
             "scallop",
             "honeycomb"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "085",
@@ -956,7 +1040,8 @@
           "tags": [
             "scallop",
             "chevron"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "086",
@@ -966,7 +1051,8 @@
           "tags": [
             "scallop",
             "arc"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "087",
@@ -976,7 +1062,8 @@
           "tags": [
             "scallop",
             "lozenge"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "088",
@@ -986,7 +1073,8 @@
           "tags": [
             "scallop",
             "wave"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "089",
@@ -996,7 +1084,8 @@
           "tags": [
             "scallop",
             "terrace"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "090",
@@ -1006,7 +1095,8 @@
           "tags": [
             "scallop",
             "switchback"
-          ]
+          ],
+          "color": "#b3a4ba"
         },
         {
           "id": "091",
@@ -1016,7 +1106,8 @@
           "tags": [
             "keystone",
             "parallel"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "092",
@@ -1026,7 +1117,8 @@
           "tags": [
             "keystone",
             "constellation"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "093",
@@ -1036,7 +1128,8 @@
           "tags": [
             "keystone",
             "sunburst"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "094",
@@ -1046,7 +1139,8 @@
           "tags": [
             "keystone",
             "honeycomb"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "095",
@@ -1056,7 +1150,8 @@
           "tags": [
             "keystone",
             "chevron"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "096",
@@ -1066,7 +1161,8 @@
           "tags": [
             "keystone",
             "arc"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "097",
@@ -1076,7 +1172,8 @@
           "tags": [
             "keystone",
             "lozenge"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "098",
@@ -1086,7 +1183,8 @@
           "tags": [
             "keystone",
             "wave"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "099",
@@ -1096,7 +1194,8 @@
           "tags": [
             "keystone",
             "terrace"
-          ]
+          ],
+          "color": "#ccad96"
         },
         {
           "id": "100",
@@ -1106,7 +1205,8 @@
           "tags": [
             "keystone",
             "switchback"
-          ]
+          ],
+          "color": "#ccad96"
         }
       ],
       "hardware": [

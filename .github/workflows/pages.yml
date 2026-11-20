@@ -2,7 +2,7 @@ name: pages
 
 # Publishes the gallery to GitHub Pages: https://dustboy-kit.github.io/case-library/
 # The site is the repo's public files as they are on main. Nothing is built: the gallery is
-# Preact + Tailwind from a CDN, and its data (gallery/cases.js) is checked by the validate job.
+# React + Tailwind from a CDN, and its data (gallery/cases.js) is checked by the validate job.
 
 on:
   push:
