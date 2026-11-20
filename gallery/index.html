@@ -32,7 +32,9 @@
 { "imports": {
   "react": "https://esm.sh/react@19.3.1",
   "react-dom/client": "https://esm.sh/react-dom@19.3.1/client?deps=react@19.3.1",
-  "htm": "https://esm.sh/htm@3.1.1"
+  "htm": "https://esm.sh/htm@3.1.1",
+  "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
 } }
 </script>
 
@@ -48,7 +50,7 @@
 </div>
 
 <script type="module">
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import htm from "htm";
 
@@ -91,14 +93,104 @@ function Status({ c }) {
   </p>`;
 }
 
-function Preview({ c, f }) {
+function Preview({ c, f, onOpen }) {
   if (c.preview && f.local) {
     const src = f.base + c.preview;
-    return html`<a href=${src} aria-label=${"Full preview: " + c.id} className="block bg-shot">
-      <img src=${src} loading="lazy" width="1600" height="1200" alt=${c.name || c.id} className="block aspect-[4/3] h-auto w-full object-cover" /></a>`;
+    const open = (e) => { if (onOpen) { e.preventDefault(); onOpen(); } };
+    return html`<a href=${src} onClick=${open} aria-label=${"Open in 3D: " + c.id} title="Open in 3D"
+      className="group relative block cursor-zoom-in bg-shot">
+      <img src=${src} loading="lazy" width="1600" height="1200" alt=${c.name || c.id} className="block aspect-[4/3] h-auto w-full object-cover" />
+      ${onOpen ? html`<span className="absolute right-2 bottom-2 rounded-full bg-black/60 px-2 py-0.5 text-[.7rem] font-semibold tracking-wide text-white opacity-80 transition group-hover:opacity-100">3D ↻</span>` : null}</a>`;
   }
   return html`<a href=${f.home} className="grid aspect-[4/3] place-items-center bg-shot text-sm text-stone-500">
     ${c.preview ? "preview in the case's own repo ↗" : "no preview"}</a>`;
+}
+
+// Three.js popup: loads the STLs of one card, lays them side by side, orbit/zoom/pan.
+// Same stack as cases/dbk-pms7003-xiao-c3/index.html (three 0.164.1, OrbitControls, STLLoader).
+function Viewer3D({ item, onClose }) {
+  const host = useRef(null);
+  const [state, setState] = useState("Loading 3D…");
+  useEffect(() => {
+    let stopped = false, cleanup = () => {};
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    addEventListener("keydown", onKey);
+    (async () => {
+      const THREE = await import("three");
+      const { OrbitControls } = await import("three/addons/controls/OrbitControls.js");
+      const { STLLoader } = await import("three/addons/loaders/STLLoader.js");
+      const el = host.current;
+      if (stopped || !el) return;
+      const scene = new THREE.Scene();
+      const cam = new THREE.PerspectiveCamera(35, el.clientWidth / el.clientHeight, 0.1, 10000);
+      cam.up.set(0, 0, 1);
+      const r = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      r.setPixelRatio(devicePixelRatio); r.setSize(el.clientWidth, el.clientHeight);
+      el.appendChild(r.domElement);
+      scene.add(new THREE.HemisphereLight(0xffffff, 0x8a8a80, 2.4));
+      const sun = new THREE.DirectionalLight(0xffffff, 1.8); sun.position.set(80, -120, 160); scene.add(sun);
+      const ctl = new OrbitControls(cam, r.domElement); ctl.enableDamping = true;
+      const group = new THREE.Group(); scene.add(group);
+      const loader = new STLLoader();
+      let x = 0;
+      for (const url of item.stls) {
+        const geo = await loader.loadAsync(url);
+        if (stopped) return;
+        geo.computeBoundingBox(); geo.computeVertexNormals();
+        const b = geo.boundingBox;
+        geo.translate(x - b.min.x, -(b.min.y + b.max.y) / 2, -b.min.z);
+        x += b.max.x - b.min.x + 10;
+        group.add(new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: item.color, roughness: 0.6, metalness: 0.05 })));
+      }
+      const box = new THREE.Box3().setFromObject(group);
+      const mid = box.getCenter(new THREE.Vector3()), size = box.getSize(new THREE.Vector3()).length();
+      ctl.target.copy(mid);
+      cam.position.set(mid.x + size * 0.55, mid.y - size * 0.95, mid.z + size * 0.75);
+      ctl.update();
+      setState("");
+      let raf = 0;
+      const loop = () => { ctl.update(); r.render(scene, cam); raf = requestAnimationFrame(loop); };
+      loop();
+      const fit = () => { cam.aspect = el.clientWidth / el.clientHeight; cam.updateProjectionMatrix(); r.setSize(el.clientWidth, el.clientHeight); };
+      addEventListener("resize", fit);
+      cleanup = () => {
+        cancelAnimationFrame(raf); removeEventListener("resize", fit); ctl.dispose();
+        group.traverse((o) => { o.geometry?.dispose(); o.material?.dispose(); });
+        r.dispose(); r.domElement.remove();
+      };
+    })().catch((e) => { if (!stopped) setState("Could not load the 3D model: " + e.message); });
+    return () => { stopped = true; removeEventListener("keydown", onKey); cleanup(); };
+  }, [item]);
+
+  return html`<div className="fixed inset-0 z-50 grid place-items-center bg-black/60 p-3" onClick=${onClose}>
+    <div role="dialog" aria-modal="true" aria-label=${item.title} onClick=${(e) => e.stopPropagation()}
+      className="flex h-[min(86vh,760px)] w-[min(96vw,1120px)] flex-col overflow-hidden rounded-[7px] border border-line bg-panel shadow-2xl">
+      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 border-b border-line px-4 py-2.5">
+        <div><small className="eyebrow">${item.eyebrow}</small><div className="font-[610] leading-snug">${item.title}</div></div>
+        <nav className="flex flex-wrap items-center gap-x-4 text-[.92rem]">
+          ${item.links.map((l) => html`<a key=${l.href} href=${l.href} download=${l.dl || undefined}>${l.label}</a>`)}
+          <button type="button" onClick=${onClose} className="cursor-pointer rounded border border-line px-2 py-0.5 text-ink">Close ✕</button>
+        </nav>
+      </div>
+      <div className="relative flex-1 bg-shot">
+        <div ref=${host} className="absolute inset-0"></div>
+        ${state ? html`<p className="absolute inset-0 m-0 grid place-items-center text-sm text-stone-500">${state}</p>` : null}
+      </div>
+      <p className="m-0 border-t border-line px-4 py-2 text-xs text-soft">Drag to turn · scroll to zoom · right-drag to pan · Esc to close${item.parts > 1 ? ` · ${item.parts} parts laid side by side, as printed` : ""}</p>
+    </div>
+  </div>`;
+}
+
+// What the 3D popup shows for one card.
+function view3d(c, v) {
+  const f = filesOf(c);
+  if (!f.local) return null;
+  if (v) return { eyebrow: `№ ${v.id} · ${c.id}`, title: v.name, color: v.color || "#e0ad32", stls: [f.base + v.stl], parts: 2,
+    links: [{ href: f.base + v.stl, label: "STL ↓", dl: `${c.id}-${v.id}.stl` }] };
+  const stls = (c.print_parts || []).map((p) => f.base + p.stl);
+  if (!stls.length) return null;
+  return { eyebrow: c.id + (c.version ? " · v" + c.version : ""), title: c.name || c.id, color: "#e9c21a", stls, parts: stls.length,
+    links: [...(c.viewer ? [{ href: f.base + c.viewer, label: "full viewer ↗" }] : []), { href: f.home, label: "case folder" }] };
 }
 
 function Links({ c, f }) {
@@ -130,10 +222,10 @@ function Details({ c, f }) {
   </details>`;
 }
 
-function CaseCard({ c, n }) {
+function CaseCard({ c, n, onOpen }) {
   const f = filesOf(c);
   return html`<article className="overflow-hidden rounded-[7px] border border-line bg-panel" data-status=${c.status}>
-    <${Preview} c=${c} f=${f} />
+    <${Preview} c=${c} f=${f} onOpen=${onOpen} />
     <div className="px-4 pt-3 pb-4">
       <small className="eyebrow">№ ${num(n)}</small>
       <${Title} name=${c.name} id=${c.id} />
@@ -145,11 +237,11 @@ function CaseCard({ c, n }) {
 }
 
 // One printable variant of a case that carries `variants` (e.g. prism-100): a small card, prism-style.
-function VariantCard({ c, v }) {
+function VariantCard({ c, v, onOpen }) {
   const f = filesOf(c);
   const shot = v.preview ? { ...c, preview: v.preview, id: c.id + "-" + v.id, name: v.name } : c;
   return html`<article className="overflow-hidden rounded-[7px] border border-line bg-panel" data-status=${c.status}>
-    <${Preview} c=${shot} f=${f} />
+    <${Preview} c=${shot} f=${f} onOpen=${onOpen} />
     <div className="px-4 pt-3 pb-4">
       <small className="eyebrow">№ ${v.id}</small>
       <h2 className="mt-0.5 mb-2 text-[1.07rem] font-[610] leading-snug">${v.name.replace(" / ", "\u00a0/ ")}</h2>
@@ -191,6 +283,7 @@ function App({ data }) {
   const [status, setStatus] = useState("");
   const [tag, setTag] = useState("");
   const [only, setOnly] = useState("");
+  const [open, setOpen] = useState(null);
   const tags = useMemo(() => [...new Set(items.flatMap((i) => i.tags))].sort(), [items]);
   const shown = items.filter((i) => (!status || i.c.status === status) && (!tag || i.tags.includes(tag)) && (!only || i.c.id === only));
   const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
@@ -233,12 +326,16 @@ function App({ data }) {
 
     ${shown.length
       ? html`<section aria-label="Cases" className="grid grid-cols-[repeat(auto-fill,minmax(min(235px,100%),1fr))] items-start gap-4">
-          ${shown.map((i) => i.v ? html`<${VariantCard} key=${i.key} c=${i.c} v=${i.v} />` : html`<${CaseCard} key=${i.key} c=${i.c} n=${items.filter((x) => !x.v).indexOf(i) + 1} />`)}
+          ${shown.map((i) => { const o = view3d(i.c, i.v); const onOpen = o ? () => setOpen(o) : null;
+            return i.v ? html`<${VariantCard} key=${i.key} c=${i.c} v=${i.v} onOpen=${onOpen} />`
+              : html`<${CaseCard} key=${i.key} c=${i.c} n=${items.filter((x) => !x.v).indexOf(i) + 1} onOpen=${onOpen} />`; })}
         </section>`
       : html`<p className="text-soft">No case matches.</p>`}
 
+    ${open ? html`<${Viewer3D} item=${open} onClose=${() => setOpen(null)} />` : null}
+
     <footer className="mt-12 border-t border-line pt-4 text-xs text-soft">
-      Data: <code>gallery/cases.js</code>, written by <code>tools/gallery.py</code> from <code>index.json</code>.${" "}Page: React 19.3.1 components via htm 3.1.1 (esm.sh) and Tailwind 4.3.5 (jsDelivr), no build step.
+      Data: <code>gallery/cases.js</code>, written by <code>tools/gallery.py</code> from <code>index.json</code>.${" "}Page: React 19.3.1 components via htm 3.1.1 (esm.sh), Tailwind 4.3.5 and three.js 0.164.1 (jsDelivr), no build step. Click a picture to turn the model in 3D.
     </footer>
   </main>`;
 }
