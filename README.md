@@ -6,6 +6,10 @@
 - CI checks every case on each PR, exports every printable part, and runs the case's fit check.
 - [`index.json`](index.json) lists every case. Tools and galleries read that file.
 
+![The five pastel prism enclosures (AI illustration)](docs/ai-renders/cases/pastel-family.jpg)
+
+*AI illustration by Codex image_gen from the CAD renders, not a photograph. More in [`docs/ai-renders/`](docs/ai-renders/).*
+
 ## Cases
 
 <!-- The table between these markers is written by `python3 tools/gallery.py --readme`. Do not edit it by hand. -->
