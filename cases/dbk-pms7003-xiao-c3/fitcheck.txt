@@ -1,0 +1,15 @@
+ok   tub_pms  overlap 0 mm3
+ok   tub_xiao  overlap 0 mm3
+ok   tub_oled  overlap 0 mm3
+ok   tub_tray  overlap 0.000 mm3
+ok   tub_lid  overlap 0.000 mm3
+ok   tub_plug  overlap 0 mm3
+ok   tray_pms  overlap 0 mm3
+ok   tray_xiao  overlap 0 mm3
+ok   tray_oled  overlap 0 mm3
+ok   tray_plug  overlap 0 mm3
+ok   lid_xiao  overlap 0 mm3
+ok   lid_oled  overlap 0.000 mm3
+ok   lid_pms  overlap 0 mm3
+ok   lid_tray  overlap 0 mm3
+ok   lid_plug  overlap 0 mm3

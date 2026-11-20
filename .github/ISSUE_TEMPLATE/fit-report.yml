@@ -1,0 +1,28 @@
+name: Fit report
+description: You printed a case. Tell us how it fitted; this is how a case moves to status printed / field-tested.
+title: "fit: <case id> <version>"
+labels: ["fit-report"]
+body:
+  - type: input
+    id: case
+    attributes:
+      label: Case id and version
+      placeholder: dbk-pms7003-xiao-c3 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: printer
+    attributes:
+      label: Printer, material, layer height, nozzle
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options: [fits as is, fits after sanding/forcing, does not fit]
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What fitted and what did not
+      description: Measure with calipers where you can (mm). Photos help.

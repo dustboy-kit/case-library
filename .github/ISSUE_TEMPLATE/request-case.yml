@@ -1,0 +1,22 @@
+name: Request a case
+description: You have hardware that needs a case. Describe it so someone can draw one.
+title: "request: <hardware>"
+labels: ["request"]
+body:
+  - type: textarea
+    id: parts
+    attributes:
+      label: Parts
+      description: Each board, sensor, screen and connector, with a datasheet link or caliper sizes in mm.
+    validations:
+      required: true
+  - type: textarea
+    id: needs
+    attributes:
+      label: Needs
+      description: Airflow, screen window, USB access, mounting, wall/desk, outdoor, no screws, kid-safe...
+  - type: textarea
+    id: photos
+    attributes:
+      label: Photos
+      description: Drag photos here. Photos alone give a concept case only; measured sizes give a real one.

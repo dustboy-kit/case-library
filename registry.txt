@@ -1,0 +1,5 @@
+# Cases that live in their own GitHub repo (like the Arduino Library Manager's repositories.txt).
+# One URL per line: https://github.com/<owner>/<repo>
+# The repo must have case.json at its root (see case.schema.json). CI clones it, validates it,
+# and lists it in index.json. To add yours, open a PR that adds one line, or use the
+# "Add a case" issue form.

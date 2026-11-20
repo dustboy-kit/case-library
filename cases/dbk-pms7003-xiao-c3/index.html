@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>DustBoy Kit case · BOSL2 · fit check</title>
+<style>
+ body{margin:0;font:14px Sarabun,Helvetica,sans-serif;background:#f7f5f0;color:#1d2530}
+ header{padding:16px 22px 4px} h1{margin:0;font-size:22px} .sub{color:#6b7280}
+ #wrap{display:flex;gap:14px;padding:12px 22px}
+ #view{flex:1;height:620px;border-radius:12px;background:#fff;border:1px solid #e3ddd0;position:relative}
+ #ui{width:270px;background:#fff;border:1px solid #e3ddd0;border-radius:12px;padding:14px}
+ #ui label{display:block;margin:6px 0} #ui input[type=range]{width:100%}
+ .sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+ #fit{font:12px Menlo,monospace;white-space:pre;color:#14532d;background:#ecfdf5;padding:8px;border-radius:8px;margin-top:10px}
+ .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:6px 22px 30px}
+ .grid figure{margin:0;background:#fff;border:1px solid #e3ddd0;border-radius:10px;padding:6px}
+ .grid img{width:100%} figcaption{color:#6b7280;font-size:12px;padding:2px 4px}
+</style></head><body>
+<header><h1>DustBoy Kit case · BOSL2</h1>
+<div class="sub">Holds the real PMS7003 (48×37×12), XIAO ESP32C3 with headers (21×17.5) and 0.91" OLED (38×12). Three printed parts: tub, tray, lid. Drag to turn, scroll to zoom.</div></header>
+<div id="wrap"><div id="view"></div>
+<div id="ui">
+ <b>Show</b>
+ <label><input type="checkbox" data-k="tub" checked><span class="sw" style="background:#e9c21a"></span>Tub</label>
+ <label><input type="checkbox" data-k="tray" checked><span class="sw" style="background:#f0f0f0;border:1px solid #ccc"></span>Tray (XIAO shelf)</label>
+ <label><input type="checkbox" data-k="lid" checked><span class="sw" style="background:#e9c21a"></span>Lid</label>
+ <label><input type="checkbox" data-k="pms" checked><span class="sw" style="background:#3d8f99"></span>PMS7003</label>
+ <label><input type="checkbox" data-k="xiao" checked><span class="sw" style="background:#333"></span>XIAO ESP32C3</label>
+ <label><input type="checkbox" data-k="oled" checked><span class="sw" style="background:#2a62b8"></span>OLED 0.91"</label>
+ <label><input type="checkbox" data-k="plug" checked><span class="sw" style="background:#15181c"></span>USB-C plug</label>
+ <label>Explode <input id="ex" type="range" min="0" max="1" step="0.01" value="0"></label>
+ <label>See-through case <input id="op" type="range" min="0.15" max="1" step="0.01" value="1"></label>
+ <div id="fit">loading fitcheck…</div>
+</div></div>
+<div class="grid">
+ <figure><img src="renders/01-assembled.png"><figcaption>Assembled, USB-C side</figcaption></figure>
+ <figure><img src="renders/02-assembled-back.png"><figcaption>Air inlet / outlet windows and divider fin</figcaption></figure>
+ <figure><img src="renders/03-inside-no-lid.png"><figcaption>Inside, lid off</figcaption></figure>
+ <figure><img src="renders/04-exploded.png"><figcaption>Exploded: tub, PMS7003, tray + XIAO, lid + OLED</figcaption></figure>
+ <figure><img src="renders/05-section-front.png"><figcaption>Section through the PMS connector</figcaption></figure>
+ <figure><img src="renders/06-section-xiao.png"><figcaption>Section through the XIAO: pins through the tray, lid post on the shield</figcaption></figure>
+ <figure><img src="renders/07-lid-underside.png"><figcaption>Lid underside: OLED pocket, hold-down post, lip</figcaption></figure>
+ <figure><img src="renders/08-print-plate.png"><figcaption>Print orientation</figcaption></figure>
+</div>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.164.1/build/three.module.js","three/addons/":"https://unpkg.com/three@0.164.1/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import {STLLoader} from 'three/addons/loaders/STLLoader.js';
+const el=document.getElementById('view');
+const r=new THREE.WebGLRenderer({antialias:true}); r.setPixelRatio(devicePixelRatio); el.appendChild(r.domElement);
+const scene=new THREE.Scene(); scene.background=new THREE.Color(0xffffff);
+const cam=new THREE.PerspectiveCamera(35,1,1,2000); cam.up.set(0,0,1); cam.position.set(-120,-150,110);
+const ctl=new OrbitControls(cam,r.domElement); ctl.target.set(0,0,22); ctl.enableDamping=true;
+scene.add(new THREE.HemisphereLight(0xffffff,0x8a8070,1.6));
+const d=new THREE.DirectionalLight(0xffffff,1.6); d.position.set(-80,-120,200); scene.add(d);
+const d2=new THREE.DirectionalLight(0xffffff,.6); d2.position.set(120,80,60); scene.add(d2);
+const P={tub:['stl/dbk-case-tub.stl',0xe9c21a,0], tray:['stl/ref/tray.stl',0xf0f0f0,40], lid:['stl/ref/lid.stl',0xe9c21a,95],
+ pms:['stl/ref/pms.stl',0x3d8f99,0], xiao:['stl/ref/xiao.stl',0x333333,40], oled:['stl/ref/oled.stl',0x2a62b8,95], plug:['stl/ref/plug.stl',0x15181c,0]};
+const M={}; const L=new STLLoader();
+for(const [k,[f,c,dz]] of Object.entries(P)) L.load(f,g=>{g.computeVertexNormals();
+  const m=new THREE.Mesh(g,new THREE.MeshStandardMaterial({color:c,roughness:.55,metalness:k==='xiao'?.3:0,transparent:true}));
+  m.userData.dz=dz; M[k]=m; scene.add(m); apply();});
+const ex=document.getElementById('ex'), op=document.getElementById('op');
+function apply(){ for(const [k,m] of Object.entries(M)){ m.position.z=m.userData.dz*ex.value;
+  m.visible=document.querySelector(`[data-k=${k}]`).checked;
+  if(['tub','tray','lid'].includes(k)){m.material.opacity=+op.value; m.material.depthWrite=op.value>.98;} } }
+document.querySelectorAll('input').forEach(i=>i.addEventListener('input',apply));
+function size(){const w=el.clientWidth,h=el.clientHeight; r.setSize(w,h); cam.aspect=w/h; cam.updateProjectionMatrix();}
+addEventListener('resize',size); size();
+(function loop(){ctl.update(); r.render(scene,cam); requestAnimationFrame(loop);})();
+fetch('fitcheck.txt').then(x=>x.text()).then(t=>document.getElementById('fit').textContent='Fit check (overlap must be 0)\n'+t);
+</script></body></html>

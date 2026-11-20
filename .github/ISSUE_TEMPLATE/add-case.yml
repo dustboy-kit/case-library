@@ -1,0 +1,40 @@
+name: Add a case
+description: Submit a case kept in your own GitHub repo (it gets a line in registry.txt), or say you will send a PR to cases/.
+title: "add: <case id>"
+labels: ["add-case"]
+body:
+  - type: input
+    id: repo
+    attributes:
+      label: Repository URL
+      description: https://github.com/<owner>/<repo> with case.json at its root. Leave empty if you will send a PR to cases/ instead.
+      placeholder: https://github.com/you/my-sensor-case
+  - type: input
+    id: id
+    attributes:
+      label: Case id
+      description: lowercase, digits and dashes; must match `id` in case.json
+    validations:
+      required: true
+  - type: textarea
+    id: hardware
+    attributes:
+      label: Hardware it holds
+      description: Each part, and where its size came from (datasheet / measured / typical / photo-estimate).
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options: [concept, cad-fit-checked, printed, field-tested]
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: "`python3 tools/validate.py` passes with my case"
+        - label: Every print part exports from the .scad with no errors
+        - label: The license allows others to print and change it

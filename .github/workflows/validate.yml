@@ -1,0 +1,56 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 3 * * 1"   # weekly: re-check registry repos, like the Arduino indexer
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate cases + registry, check index.json is current
+        run: python3 tools/validate.py --check-index
+
+  render:
+    runs-on: ubuntu-latest
+    needs: metadata
+    steps:
+      - uses: actions/checkout@v4
+      - name: OpenSCAD dev snapshot (Manifold backend)
+        run: |
+          set -euo pipefail
+          name=$(curl -fsSL https://files.openscad.org/snapshots/ | grep -oE 'OpenSCAD-[0-9.]+-x86_64\.AppImage' | sort -u | tail -1)
+          echo "using $name"
+          curl -fsSL -o openscad.AppImage "https://files.openscad.org/snapshots/$name"
+          chmod +x openscad.AppImage
+          ./openscad.AppImage --appimage-extract >/dev/null
+          echo "OPENSCAD=$PWD/squashfs-root/AppRun" >> "$GITHUB_ENV"
+      - name: Libraries named in case.json files
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/openscad-libs"
+          python3 - <<'PY' > libs.txt
+          import json, glob
+          seen = set()
+          for f in glob.glob("cases/*/case.json"):
+              for l in json.load(open(f))["openscad"].get("libraries", []):
+                  if l["name"] not in seen:
+                      seen.add(l["name"]); print(l["name"], l["url"], l.get("commit", ""))
+          PY
+          while read -r name url commit; do
+            git clone --quiet "$url" "$HOME/openscad-libs/$name"
+            [ -n "$commit" ] && git -C "$HOME/openscad-libs/$name" checkout --quiet "$commit"
+          done < libs.txt
+          echo "OPENSCADPATH=$HOME/openscad-libs" >> "$GITHUB_ENV"
+      - name: Export every print part and run fit checks
+        run: |
+          sudo apt-get install -y -qq xvfb >/dev/null
+          xvfb-run -a tools/render.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stl
+          path: build/

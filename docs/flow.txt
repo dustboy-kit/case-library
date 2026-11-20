@@ -1,0 +1,54 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║  dustboy-kit/case-library  ·  contribution flow                          ║
+║  1 case · 3 STL parts · 15 fit pairs · 3 issue forms · 2 CI jobs · 3.3M  ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+ 1 ─ TWO WAYS IN (Arduino Library Manager style)
+
+   contributor
+       │
+       ├──────────────────────────┬──────────────────────────┐
+       ▼                          ▼                          ▼
+ ┌────────────────┐     ┌──────────────────┐      ┌──────────────────┐
+ │ PR: cases/<id>/│     │ PR: +1 line in   │      │ issue form       │
+ │ case.json      │     │ registry.txt     │      │ add-case         │
+ │ .scad stl png  │     │ (own repo, root  │      │ request-case     │
+ └───────┬────────┘     │  case.json)      │      │ fit-report       │
+         │              └────────┬─────────┘      └────────┬─────────┘
+         └──────────┬────────────┘                         │
+                    ▼                                      │ human turns it
+ 2 ─ CI  (.github/workflows/validate.yml)                  │ into a PR
+                    │                                      │
+       ┌────────────┴────────────┐  ◄──────────────────────┘
+       ▼                         ▼
+ ┌────────────────┐     ┌───────────────────────┐
+ │ metadata       │     │ render                │  OpenSCAD snapshot AppImage
+ │ validate.py    │────►│ every print_parts     │  + libs pinned in case.json
+ │ schema, files, │     │ scene -> STL          │  (BOSL2 1351a9f)
+ │ scenes, index  │     │ + fitcheck.sh         │  STLs uploaded as artifact
+ └───────┬────────┘     └───────────┬───────────┘
+         │ also weekly: re-clone    │
+         │ every registry repo      │
+         └────────────┬─────────────┘
+                      ▼
+ 3 ─ HUMAN MERGES (agents open PRs, never merge)
+                      │
+                      ▼
+            ╔════════════════════╗
+            ║ index.json         ║   one list of every case:
+            ║ in-repo + registry ║   id, version, status, outer_mm, source
+            ╚═════════╤══════════╝
+                      ▼
+ 4 ─ STATUS LADDER (moves only on evidence)
+
+   concept ──► cad-fit-checked ──► printed ──► field-tested
+     │              ▲                 ▲
+     │              │                 └── fit-report issue + PR
+     │              └── fitcheck.sh passes against part models
+     └── photo-estimate sizes are stuck here (validate.py enforces)
+
+   dbk-pms7003-xiao-c3 v0.1.0 = cad-fit-checked · printed: false
+   ┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┐
+     not built yet: gallery page,
+     auto-PR from add-case issue
+   └ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘
