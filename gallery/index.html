@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>case-library · gallery</title>
+<!--
+  No build step. Preact components written with htm (tagged templates instead of JSX) and
+  Tailwind's browser build, both from jsDelivr at pinned versions. The data is cases.js,
+  written by tools/gallery.py from index.json. Edit this file by hand; never edit cases.js.
+-->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.5"></script>
+<style>
+  :root { color-scheme: light dark;
+    --bg:#f3f1eb; --panel:#fffefa; --ink:#272e2d; --soft:#53625f; --line:#c6cbc4; --accent:#245950; --shot:#f5f5f5; }
+  @media (prefers-color-scheme: dark) { :root {
+    --bg:#202725; --panel:#2d3432; --ink:#f4f2e9; --soft:#c7d0ca; --line:#59635f; --accent:#c2e5d6; --shot:#e9e9e7; } }
+</style>
+<style type="text/tailwindcss">
+  @theme inline {
+    --color-bg: var(--bg); --color-panel: var(--panel); --color-ink: var(--ink); --color-soft: var(--soft);
+    --color-line: var(--line); --color-accent: var(--accent); --color-shot: var(--shot);
+  }
+  @layer base {
+    body { @apply bg-bg text-ink; font: 16px/1.5 system-ui, sans-serif; }
+    a { @apply text-accent underline underline-offset-[.2em]; }
+  }
+  @utility eyebrow { @apply text-[.78rem] font-[650] uppercase tracking-[.12em] text-soft; }
+</style>
+<script src="cases.js"></script>
+</head>
+<body>
+<div id="app">
+  <noscript>
+    <main style="max-width:60ch;margin:3rem auto;padding:0 1rem">
+      This gallery needs JavaScript: Preact and Tailwind load from jsDelivr. The same list is in
+      <a href="../index.json">index.json</a> and the Cases table of <a href="../README.md">README.md</a>.
+    </main>
+  </noscript>
+</div>
+
+<script type="module">
+import { html, render, useState, useMemo } from "https://cdn.jsdelivr.net/npm/htm@3.1.1/preact/standalone.module.js";
+
+const REPO = "https://github.com/dustboy-kit/case-library";
+
+// The status ladder, lowest first. A case moves up only on evidence (README "Status ladder").
+const LADDER = [
+  { id: "concept",         dot: "bg-stone-400",   text: "text-stone-600 dark:text-stone-300",     proof: "drawn; sizes not checked" },
+  { id: "cad-fit-checked", dot: "bg-sky-500",     text: "text-sky-800 dark:text-sky-200",         proof: "a fit check passes against part models" },
+  { id: "printed",         dot: "bg-emerald-500", text: "text-emerald-800 dark:text-emerald-200", proof: "a fit report says it was printed and fitted" },
+  { id: "field-tested",    dot: "bg-violet-500",  text: "text-violet-800 dark:text-violet-200",   proof: "used for real, e.g. in a classroom" },
+];
+const statusOf = (id) => LADDER.find((s) => s.id === id) || { id: "not fetched", dot: "bg-stone-300", text: "text-soft", proof: "" };
+
+// Where a case's files live: relative to this page for in-repo cases, the repo itself for registry cases.
+function filesOf(c) {
+  const src = c.source || {};
+  if (src.kind === "in-repo") return { local: true, base: `../${src.path}/`, home: `../${src.path}/` };
+  return { local: false, base: `${src.url}/blob/${src.commit || "HEAD"}/`, home: src.url };
+}
+const fileName = (p) => p.split("/").pop();
+const num = (n) => String(n).padStart(3, "0");
+
+// "DustBoy Kit case: PMS7003 + XIAO" -> ["DustBoy Kit case", "PMS7003 + XIAO"], shown as "a / b".
+function Title({ name, id }) {
+  const [a, b] = (name || id).split(/:\s+/, 2);
+  return html`<h2 class="mt-0.5 mb-2 text-[1.07rem] font-[610] leading-snug">
+    ${a}${b ? html` <span class="font-normal text-soft">/</span> ${b}` : null}</h2>`;
+}
+
+function Status({ c }) {
+  const s = statusOf(c.status);
+  return html`<p class="m-0 mb-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[.85rem]">
+    <span class="inline-flex items-center gap-1.5 font-medium ${s.text}" title=${s.proof}>
+      <span class="size-2 rounded-full ${s.dot}"></span>${s.id}</span>
+    <span class="text-soft">${c.printed ? "printed" : "not printed yet"}</span>
+    ${c.outer_mm ? html`<span class="text-soft tabular-nums">${c.outer_mm.join(" × ")} mm</span>` : null}
+  </p>`;
+}
+
+function Preview({ c, f }) {
+  if (c.preview && f.local) {
+    const src = f.base + c.preview;
+    return html`<a href=${src} aria-label=${"Full preview: " + c.id} class="block bg-shot">
+      <img src=${src} loading="lazy" width="1600" height="1200" alt=${c.name || c.id} class="block aspect-[4/3] h-auto w-full object-cover" /></a>`;
+  }
+  return html`<a href=${f.home} class="grid aspect-[4/3] place-items-center bg-shot text-sm text-stone-500">
+    ${c.preview ? "preview in the case's own repo ↗" : "no preview"}</a>`;
+}
+
+function Links({ c, f }) {
+  const parts = c.print_parts || [];
+  const links = [
+    ...parts.map((p) => ({ href: f.base + p.stl, label: `STL · ${p.scene} ↓`, dl: f.local })),
+    ...(c.entry ? [{ href: f.base + c.entry, label: "OpenSCAD ↓", dl: f.local }] : []),
+    ...(c.viewer ? [{ href: f.base + c.viewer, label: "3D viewer" }] : []),
+  ];
+  if (!links.length) links.push({ href: f.home, label: "repo ↗" });
+  return html`<nav class="flex flex-wrap gap-x-3 gap-y-0.5 text-[.92rem]">
+    ${links.map((l) => html`<a href=${l.href} download=${l.dl ? fileName(l.href) : undefined}>${l.label}</a>`)}
+  </nav>`;
+}
+
+function Details({ c, f }) {
+  const hw = c.hardware || [];
+  return html`<details class="group mt-3 border-t border-line pt-2 text-[.85rem]">
+    <summary class="cursor-pointer list-none text-soft marker:hidden select-none">
+      <span class="eyebrow !text-[.7rem]">Holds ${hw.length} part${hw.length === 1 ? "" : "s"} · ${c.license || "no license"}</span>
+      <span class="ml-1 inline-block text-soft transition group-open:rotate-90">›</span></summary>
+    ${c.summary ? html`<p class="mt-2 mb-2 text-soft">${c.summary}</p>` : null}
+    <ul class="m-0 mb-2 list-none space-y-1 p-0">
+      ${hw.map((h) => html`<li>${h.part}
+        <span class="whitespace-nowrap ${h.size_source === "photo-estimate" ? "text-amber-700 dark:text-amber-300" : "text-soft"}"
+          title="where the size came from"> · ${h.size_mm ? h.size_mm.join("×") + " · " : ""}${h.size_source}</span></li>`)}
+    </ul>
+    <p class="m-0 text-soft">${[c.version && "v" + c.version, (c.authors || []).join(", ")].filter(Boolean).join(" · ")}${" · "}<a href=${f.home}>${f.local ? "case folder" : "repo ↗"}</a></p>
+  </details>`;
+}
+
+function CaseCard({ c, n }) {
+  const f = filesOf(c);
+  return html`<article class="overflow-hidden rounded-[7px] border border-line bg-panel" data-status=${c.status}>
+    <${Preview} c=${c} f=${f} />
+    <div class="px-4 pt-3 pb-4">
+      <small class="eyebrow">№ ${num(n)}</small>
+      <${Title} name=${c.name} id=${c.id} />
+      <${Status} c=${c} />
+      <${Links} c=${c} f=${f} />
+      <${Details} c=${c} f=${f} />
+    </div>
+  </article>`;
+}
+
+function Select({ label, value, onChange, children }) {
+  return html`<label class="flex items-center gap-[.4rem]">${label}
+    <select value=${value} onChange=${(e) => onChange(e.currentTarget.value)}
+      class="rounded border border-line bg-panel p-[.4rem] text-ink">${children}</select></label>`;
+}
+
+function App({ data }) {
+  const cases = data.cases;
+  const [status, setStatus] = useState("");
+  const [tag, setTag] = useState("");
+  const tags = useMemo(() => [...new Set(cases.flatMap((c) => c.tags || []))].sort(), [cases]);
+  const shown = cases.filter((c) => (!status || c.status === status) && (!tag || (c.tags || []).includes(tag)));
+  const count = (n) => `${n} ${n === 1 ? "case" : "cases"}`;
+  const notPrinted = cases.filter((c) => !c.printed).length;
+  // One string, not a multi-line template: htm drops the whitespace at line breaks.
+  const intro = `${count(cases.length)} in OpenSCAD, each with its printable parts and the parts it holds. ` +
+    "A case climbs the status ladder (concept → cad-fit-checked → printed → field-tested) only on evidence. " +
+    (notPrinted === cases.length ? "None has been printed yet."
+      : notPrinted ? `${notPrinted} of them have not been printed yet.` : "");
+
+  return html`<main class="mx-auto max-w-[1440px] p-[clamp(16px,4vw,60px)]">
+    <header class="max-w-[960px]">
+      <div class="eyebrow">dustboy-kit / case-library</div>
+      <h1 class="my-[.22em] text-[clamp(2.3rem,6vw,5.2rem)] font-bold leading-none tracking-[-.06em]">Small kits.<br />Cases to print.</h1>
+      <p class="max-w-[80ch] text-soft">${intro}</p>
+      <nav class="mt-5 mb-8 flex flex-wrap gap-x-5 gap-y-2">
+        <a href="../index.json" download>index.json ↓</a>
+        <a href="../case.schema.json">case.schema.json</a>
+        <a href="../CONTRIBUTING.md">Add a case</a>
+        <a href=${REPO + "/issues/new/choose"}>Request a case</a>
+        <a href=${REPO}>Repository</a>
+      </nav>
+    </header>
+
+    <div class="mb-[1.3rem] flex flex-wrap items-center gap-x-5 gap-y-[.6rem] border-y border-line py-4">
+      <${Select} label="Status" value=${status} onChange=${setStatus}>
+        <option value="">All statuses</option>
+        ${LADDER.map((s) => html`<option value=${s.id}>${s.id} (${cases.filter((c) => c.status === s.id).length})</option>`)}
+      <//>
+      <${Select} label="Tag" value=${tag} onChange=${setTag}>
+        <option value="">All tags</option>
+        ${tags.map((t) => html`<option value=${t}>${t}</option>`)}
+      <//>
+      <output aria-live="polite" class="text-soft">${count(shown.length)}</output>
+    </div>
+
+    ${shown.length
+      ? html`<section aria-label="Cases" class="grid grid-cols-[repeat(auto-fill,minmax(min(235px,100%),1fr))] items-start gap-4">
+          ${shown.map((c) => html`<${CaseCard} key=${c.id} c=${c} n=${cases.indexOf(c) + 1} />`)}
+        </section>`
+      : html`<p class="text-soft">No case matches.</p>`}
+
+    <footer class="mt-12 border-t border-line pt-4 text-xs text-soft">
+      Data: <code>gallery/cases.js</code>, written by <code>tools/gallery.py</code> from <code>index.json</code>.${" "}Page: Preact components via htm 3.1.1 and Tailwind 4.3.5 from jsDelivr, no build step.
+    </footer>
+  </main>`;
+}
+
+const root = document.getElementById("app");
+if (window.CASE_INDEX?.cases) {
+  render(html`<${App} data=${window.CASE_INDEX} />`, root);
+} else {
+  root.innerHTML = '<p style="padding:2rem">cases.js is missing. Run <code>python3 tools/gallery.py</code>.</p>';
+}
+</script>
+</body>
+</html>

@@ -108,7 +108,8 @@ def main():
         "schema": "case.schema.json",
         "count": len(cases),
         "cases": [{k: c.get(k) for k in ("id", "name", "version", "status", "license", "authors", "summary",
-                                         "kit", "outer_mm", "printed", "tags", "preview", "source")} for c in cases],
+                                         "kit", "outer_mm", "printed", "tags", "preview", "entry",
+                                         "print_parts", "hardware", "source")} for c in cases],
     }
     text = json.dumps(index, indent=2, ensure_ascii=False) + "\n"
     if "--write" in args:
