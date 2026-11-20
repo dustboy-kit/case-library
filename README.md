@@ -62,6 +62,8 @@ tools/render.sh cases/<id>           # every print part exports, the fit check p
 
 ## Gallery
 
+**Live: https://dustboy-kit.github.io/case-library/gallery/** (GitHub Pages, published from `main` by `.github/workflows/pages.yml`).
+
 [`gallery/index.html`](gallery/index.html) shows one card per case: preview, status, size, the parts it holds, license, and links to the STLs, the `.scad` and the case's own 3D viewer. To see it locally:
 
 ```

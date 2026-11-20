@@ -1,0 +1,55 @@
+name: pages
+
+# Publishes the gallery to GitHub Pages: https://dustboy-kit.github.io/case-library/
+# The site is the repo's public files as they are on main. Nothing is built: the gallery is
+# Preact + Tailwind from a CDN, and its data (gallery/cases.js) is checked by the validate job.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Refuse a stale gallery
+        run: python3 tools/gallery.py --check
+      - name: Stage the site
+        run: |
+          set -euo pipefail
+          mkdir _site
+          cp -R cases gallery docs index.json case.schema.json registry.txt LICENSE README.md CONTRIBUTING.md _site/
+          # The site root sends visitors to the gallery.
+          cat > _site/index.html <<'HTML'
+          <!doctype html><meta charset="utf-8"><title>case-library</title>
+          <meta http-equiv="refresh" content="0; url=gallery/">
+          <link rel="canonical" href="gallery/">
+          <a href="gallery/">case-library gallery</a>
+          HTML
+          touch _site/.nojekyll
+          du -sh _site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}gallery/
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
