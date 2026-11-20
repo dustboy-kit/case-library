@@ -57,6 +57,10 @@ import htm from "htm";
 const html = htm.bind(React.createElement);
 
 const REPO = "https://github.com/dustboy-kit/case-library";
+// The kit's firmware site (dustboy-kit/esp32c3-pm25-monitor). It links back here from its sitemap.
+const FW_BASE = "https://dustboy-kit.github.io/esp32c3-pm25-monitor/";
+const FW = [["", "Flash the firmware"], ["board/", "Know the board"], ["wifi/", "Wi-Fi setup"], ["teacher/", "For teachers"],
+  ["tools/esphome-canvas-simulator.html", "Screen designs"], ["ble/", "Bluetooth"], ["sitemap/", "All pages"]];
 
 // The status ladder, lowest first. A case moves up only on evidence (README "Status ladder").
 const LADDER = [
@@ -342,6 +346,10 @@ function App({ data }) {
         <a href="../CONTRIBUTING.md">Add a case</a>
         <a href=${REPO + "/issues/new/choose"}>Request a case</a>
         <a href=${REPO}>Repository</a>
+      </nav>
+      <nav aria-label="DustBoy Kit firmware site" className="-mt-5 mb-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-[.92rem]">
+        <span className="eyebrow">Firmware</span>
+        ${FW.map(([href, label]) => html`<a key=${href} href=${FW_BASE + href}>${label}</a>`)}
       </nav>
     </header>
 

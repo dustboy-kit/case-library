@@ -29,6 +29,19 @@ Browse all of them, with previews and downloads, in the gallery: **https://dustb
 
 ![dbk-pms7003-xiao-c3](cases/dbk-pms7003-xiao-c3/renders/01-assembled.png)
 
+## DustBoy Kit sites
+
+- **Cases:** https://dustboy-kit.github.io/case-library/gallery/ (this repo)
+- **Firmware:** https://dustboy-kit.github.io/esp32c3-pm25-monitor/
+  - [flash](https://dustboy-kit.github.io/esp32c3-pm25-monitor/)
+  - [the board](https://dustboy-kit.github.io/esp32c3-pm25-monitor/board/)
+  - [Wi-Fi setup](https://dustboy-kit.github.io/esp32c3-pm25-monitor/wifi/)
+  - [for teachers](https://dustboy-kit.github.io/esp32c3-pm25-monitor/teacher/)
+  - [screen designs](https://dustboy-kit.github.io/esp32c3-pm25-monitor/tools/esphome-canvas-simulator.html)
+  - [Bluetooth](https://dustboy-kit.github.io/esp32c3-pm25-monitor/ble/)
+  - [all pages](https://dustboy-kit.github.io/esp32c3-pm25-monitor/sitemap/)
+  - source: [dustboy-kit/esp32c3-pm25-monitor](https://github.com/dustboy-kit/esp32c3-pm25-monitor)
+
 ## Status ladder
 
 ```
