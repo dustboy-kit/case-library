@@ -47,8 +47,40 @@ def case_href(c):
     return src.get("url", "")
 
 
+def is_pastel(hex_):
+    """Same rule as the gallery: HSL saturation < 0.3 and lightness > 0.55."""
+    import colorsys, re
+    if not re.fullmatch(r"#[0-9a-fA-F]{6}", hex_ or ""):
+        return False
+    r, g, b = (int(hex_[i:i + 2], 16) / 255 for i in (1, 3, 5))
+    _, l, s = colorsys.rgb_to_hls(r, g, b)
+    return s < 0.3 and l > 0.55
+
+
+def pastel_strip(cases):
+    """One thumbnail per pastel body (the first variant of each), in-repo cases only."""
+    picks, seen = [], set()
+    for c in cases:
+        src = c.get("source") or {}
+        if src.get("kind") != "in-repo":
+            continue
+        for v in c.get("variants") or []:
+            body = v["name"].split(" / ")[0]
+            if is_pastel(v.get("color")) and v.get("preview") and body not in seen:
+                seen.add(body)
+                picks.append((c, v))
+    if not picks:
+        return []
+    cells = " ".join(f'<a href="{c["source"]["path"]}/{v["stl"]}"><img src="{c["source"]["path"]}/{v["preview"]}" width="150" alt="{v["name"]}" title="№ {v["id"]} {v["name"]}"></a>'
+                     for c, v in picks)
+    names = ", ".join(v["name"].split(" / ")[0] for _, v in picks)
+    n = sum(1 for c in cases for v in c.get("variants") or [] if is_pastel(v.get("color")))
+    return [f"**Pastel picks**: {n} pastel designs ({names}), listed first in the gallery. Click one for its STL.", "",
+            f"<p>{cells}</p>", ""]
+
+
 def readme_table(cases):
-    rows = ["| id | holds | status | outer (mm) |", "|---|---|---|---|"]
+    rows = pastel_strip(cases) + ["| id | holds | status | outer (mm) |", "|---|---|---|---|"]
     for c in cases:
         holds = " · ".join(h.get("part", "") for h in c.get("hardware") or []) or "—"
         status = c.get("status") or "unknown"
@@ -59,7 +91,7 @@ def readme_table(cases):
         more = f" · {n} variants" if n else ""
         rows.append(f"| [`{c['id']}`]({case_href(c)}){more} | {holds} | {status} | {outer} |")
     rows.append("")
-    rows.append("Browse every case with its preview and downloads in [`gallery/index.html`](gallery/index.html).")
+    rows.append("Browse all of them, with previews and downloads, in the gallery: **https://dustboy-kit.github.io/case-library/gallery/** ([`gallery/index.html`](gallery/index.html)).")
     return "\n".join(rows)
 
 
