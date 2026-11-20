@@ -12,6 +12,8 @@
 <!-- cases:start -->
 | id | holds | status | outer (mm) |
 |---|---|---|---|
+| [`dbk-pcb-photo-shell`](cases/dbk-pcb-photo-shell/) | Plantower PMS7003 envelope · Carrier PCB, lying along one side of the sensor · 0.91in OLED module on the carrier PCB | concept, **not printed yet** | 56 × 44 × 19.2 |
+| [`dbk-pcb-prism-100`](cases/dbk-pcb-prism-100/) · 100 variants | Plantower PMS7003 envelope · Carrier PCB with XIAO ESP32C3, 0.91in OLED and USB-C, lying on the sensor | concept, **not printed yet** | 59 × 47 × 21.8 |
 | [`dbk-pms7003-xiao-c3`](cases/dbk-pms7003-xiao-c3/) | Plantower PMS7003 · Seeed XIAO ESP32C3, pre-soldered headers · SSD1306 128x32 0.91in OLED module | cad-fit-checked, **not printed yet** | 56 × 46 × 47 |
 
 Browse every case with its preview and downloads in [`gallery/index.html`](gallery/index.html).

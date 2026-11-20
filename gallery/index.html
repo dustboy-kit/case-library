@@ -94,7 +94,7 @@ function Links({ c, f }) {
   const links = [
     ...parts.map((p) => ({ href: f.base + p.stl, label: `STL · ${p.scene} ↓`, dl: f.local })),
     ...(c.entry ? [{ href: f.base + c.entry, label: "OpenSCAD ↓", dl: f.local }] : []),
-    ...(c.viewer ? [{ href: f.base + c.viewer, label: "3D viewer" }] : []),
+    ...(c.viewer ? [{ href: f.base + c.viewer, label: "viewer" }] : []),
   ];
   if (!links.length) links.push({ href: f.home, label: "repo ↗" });
   return html`<nav class="flex flex-wrap gap-x-3 gap-y-0.5 text-[.92rem]">
@@ -132,6 +132,24 @@ function CaseCard({ c, n }) {
   </article>`;
 }
 
+// One printable variant of a case that carries `variants` (e.g. prism-100): a small card, prism-style.
+function VariantCard({ c, v }) {
+  const f = filesOf(c);
+  const shot = v.preview ? { ...c, preview: v.preview, id: c.id + "-" + v.id, name: v.name } : c;
+  return html`<article class="overflow-hidden rounded-[7px] border border-line bg-panel" data-status=${c.status}>
+    <${Preview} c=${shot} f=${f} />
+    <div class="px-4 pt-3 pb-4">
+      <small class="eyebrow">№ ${v.id}</small>
+      <h2 class="mt-0.5 mb-2 text-[1.07rem] font-[610] leading-snug">${v.name.replace(" / ", "\u00a0/ ")}</h2>
+      <${Status} c=${{ ...c, outer_mm: null }} />
+      <nav class="flex flex-wrap gap-x-3 gap-y-0.5 text-[.92rem]">
+        <a href=${f.base + v.stl} download=${f.local ? `${c.id}-${v.id}.stl` : undefined}>STL · lid + base ↓</a>
+      </nav>
+      <p class="m-0 mt-3 border-t border-line pt-2 text-[.8rem] text-soft">from <a href=${f.home}>${c.id}</a></p>
+    </div>
+  </article>`;
+}
+
 function Select({ label, value, onChange, children }) {
   return html`<label class="flex items-center gap-[.4rem]">${label}
     <select value=${value} onChange=${(e) => onChange(e.currentTarget.value)}
@@ -140,14 +158,21 @@ function Select({ label, value, onChange, children }) {
 
 function App({ data }) {
   const cases = data.cases;
+  // A case with `variants` shows one card per variant; plain cases come first.
+  const items = useMemo(() => [
+    ...cases.filter((c) => !c.variants?.length).map((c) => ({ key: c.id, c, tags: c.tags || [] })),
+    ...cases.filter((c) => c.variants?.length).flatMap((c) =>
+      c.variants.map((v) => ({ key: c.id + "/" + v.id, c, v, tags: [...(c.tags || []), ...(v.tags || [])] }))),
+  ], [cases]);
   const [status, setStatus] = useState("");
   const [tag, setTag] = useState("");
-  const tags = useMemo(() => [...new Set(cases.flatMap((c) => c.tags || []))].sort(), [cases]);
-  const shown = cases.filter((c) => (!status || c.status === status) && (!tag || (c.tags || []).includes(tag)));
-  const count = (n) => `${n} ${n === 1 ? "case" : "cases"}`;
+  const [only, setOnly] = useState("");
+  const tags = useMemo(() => [...new Set(items.flatMap((i) => i.tags))].sort(), [items]);
+  const shown = items.filter((i) => (!status || i.c.status === status) && (!tag || i.tags.includes(tag)) && (!only || i.c.id === only));
+  const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
   const notPrinted = cases.filter((c) => !c.printed).length;
   // One string, not a multi-line template: htm drops the whitespace at line breaks.
-  const intro = `${count(cases.length)} in OpenSCAD, each with its printable parts and the parts it holds. ` +
+  const intro = `${plural(cases.length, "case")} in OpenSCAD, ${plural(items.length, "printable design")}, each with its parts and the hardware it holds. ` +
     "A case climbs the status ladder (concept → cad-fit-checked → printed → field-tested) only on evidence. " +
     (notPrinted === cases.length ? "None has been printed yet."
       : notPrinted ? `${notPrinted} of them have not been printed yet.` : "");
@@ -169,18 +194,22 @@ function App({ data }) {
     <div class="mb-[1.3rem] flex flex-wrap items-center gap-x-5 gap-y-[.6rem] border-y border-line py-4">
       <${Select} label="Status" value=${status} onChange=${setStatus}>
         <option value="">All statuses</option>
-        ${LADDER.map((s) => html`<option value=${s.id}>${s.id} (${cases.filter((c) => c.status === s.id).length})</option>`)}
+        ${LADDER.map((s) => html`<option value=${s.id}>${s.id} (${items.filter((i) => i.c.status === s.id).length})</option>`)}
+      <//>
+      <${Select} label="Case" value=${only} onChange=${setOnly}>
+        <option value="">All cases</option>
+        ${cases.map((c) => html`<option value=${c.id}>${c.id} (${c.variants?.length || 1})</option>`)}
       <//>
       <${Select} label="Tag" value=${tag} onChange=${setTag}>
         <option value="">All tags</option>
         ${tags.map((t) => html`<option value=${t}>${t}</option>`)}
       <//>
-      <output aria-live="polite" class="text-soft">${count(shown.length)}</output>
+      <output aria-live="polite" class="text-soft">${plural(shown.length, "design")}</output>
     </div>
 
     ${shown.length
       ? html`<section aria-label="Cases" class="grid grid-cols-[repeat(auto-fill,minmax(min(235px,100%),1fr))] items-start gap-4">
-          ${shown.map((c) => html`<${CaseCard} key=${c.id} c=${c} n=${cases.indexOf(c) + 1} />`)}
+          ${shown.map((i) => i.v ? html`<${VariantCard} key=${i.key} c=${i.c} v=${i.v} />` : html`<${CaseCard} key=${i.key} c=${i.c} n=${items.filter((x) => !x.v).indexOf(i) + 1} />`)}
         </section>`
       : html`<p class="text-soft">No case matches.</p>`}
 

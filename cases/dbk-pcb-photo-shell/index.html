@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PM2.5 monitor - OpenSCAD study</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: Canvas;
+      color: CanvasText;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(1200px, calc(100% - 2rem)); margin: 0 auto; padding: 2.5rem 0 3rem; }
+    header { display: grid; gap: .75rem; margin-bottom: 1.6rem; }
+    h1 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.7rem); font-weight: 650; letter-spacing: -.025em; }
+    p { margin: 0; color: color-mix(in srgb, CanvasText 68%, transparent); max-width: 75ch; line-height: 1.5; }
+    nav { display: flex; flex-wrap: wrap; gap: .55rem 1.1rem; }
+    a { color: LinkText; text-underline-offset: .2em; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1rem; }
+    figure { margin: 0; overflow: hidden; border: 1px solid color-mix(in srgb, CanvasText 16%, transparent); border-radius: 14px; background: color-mix(in srgb, Canvas 95%, CanvasText); }
+    figure > a { display: block; background: color-mix(in srgb, Canvas 91%, CanvasText); }
+    img { display: block; width: 100%; aspect-ratio: 5 / 4; object-fit: contain; }
+    figcaption { display: grid; gap: .2rem; padding: .8rem .9rem 1rem; }
+    .title { font-weight: 600; }
+    .number { display: inline-block; min-width: 2.35rem; color: color-mix(in srgb, CanvasText 52%, transparent); font-variant-numeric: tabular-nums; }
+    .detail { padding-left: 2.35rem; color: color-mix(in srgb, CanvasText 62%, transparent); font-size: .9rem; }
+    footer { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid color-mix(in srgb, CanvasText 14%, transparent); }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    @media (max-width: 520px) {
+      main { width: calc(100% - 1rem); padding-top: 1rem; }
+      .grid { gap: .7rem; }
+      figure { border-radius: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>PM2.5 monitor - OpenSCAD study</h1>
+      <p>Ten orthographic views of a reproducible parametric model based on the photographed enclosure, Plantower sensor, display board, and supplied schematic.</p>
+      <nav aria-label="Project files">
+        <a href="pm25-monitor.scad">Edit the SCAD source</a>
+        <a href="../esp32-pms7003-schematic.pdf">Original schematic PDF</a>
+        <a href="../pm25-ten-views/index.html">AI concept gallery</a>
+      </nav>
+    </header>
+
+    <section class="grid" aria-label="Ten OpenSCAD renders">
+      <figure><a href="renders/01-exploded.png"><img src="renders/01-exploded.png" alt="OpenSCAD exploded assembly view" loading="eager"></a><figcaption><div class="title"><span class="number">01</span>Exploded assembly</div><div class="detail">Yellow cover, display board and sensor separated vertically.</div></figcaption></figure>
+      <figure><a href="renders/02-layout.png"><img src="renders/02-layout.png" alt="OpenSCAD component layout view" loading="lazy"></a><figcaption><div class="title"><span class="number">02</span>Component layout</div><div class="detail">Parts arranged side by side for visual identification.</div></figcaption></figure>
+      <figure><a href="renders/03-stack.png"><img src="renders/03-stack.png" alt="OpenSCAD assembled stack view" loading="lazy"></a><figcaption><div class="title"><span class="number">03</span>Assembled stack</div><div class="detail">Three-quarter view of the internal component stack.</div></figcaption></figure>
+      <figure><a href="renders/04-fit.png"><img src="renders/04-fit.png" alt="OpenSCAD enclosure fit check" loading="lazy"></a><figcaption><div class="title"><span class="number">04</span>Enclosure fit check</div><div class="detail">Shell and components combined to inspect approximate placement.</div></figcaption></figure>
+      <figure><a href="renders/05-pcb.png"><img src="renders/05-pcb.png" alt="OpenSCAD display PCB detail" loading="lazy"></a><figcaption><div class="title"><span class="number">05</span>Display PCB</div><div class="detail">OLED carrier, connector and board proportions.</div></figcaption></figure>
+      <figure><a href="renders/06-sensor.png"><img src="renders/06-sensor.png" alt="OpenSCAD Plantower sensor module detail" loading="lazy"></a><figcaption><div class="title"><span class="number">06</span>Sensor module</div><div class="detail">Plantower module body and connector orientation.</div></figcaption></figure>
+      <figure><a href="renders/07-shell-inside.png"><img src="renders/07-shell-inside.png" alt="OpenSCAD yellow enclosure interior" loading="lazy"></a><figcaption><div class="title"><span class="number">07</span>Enclosure interior</div><div class="detail">Open shell, internal floor opening and wall profile.</div></figcaption></figure>
+      <figure><a href="renders/08-closed.png"><img src="renders/08-closed.png" alt="OpenSCAD closed enclosure" loading="lazy"></a><figcaption><div class="title"><span class="number">08</span>Closed enclosure</div><div class="detail">Exterior form with the electronics contained.</div></figcaption></figure>
+      <figure><a href="renders/09-side.png"><img src="renders/09-side.png" alt="OpenSCAD low side profile of assembled stack" loading="lazy"></a><figcaption><div class="title"><span class="number">09</span>Low side profile</div><div class="detail">Near-horizontal orthographic view of stack height.</div></figcaption></figure>
+      <figure><a href="renders/10-top.png"><img src="renders/10-top.png" alt="OpenSCAD top orthographic view of assembled stack" loading="lazy"></a><figcaption><div class="title"><span class="number">10</span>Top of stack</div><div class="detail">Plan view for comparing component footprints.</div></figcaption></figure>
+    </section>
+
+    <footer>
+      <p>Dimensions and clearances are approximate interpretations of the photos. This model does not verify physical fit, tolerances, airflow, connector access, or electronic wiring. Re-render locally with <code>./render.sh</code>.</p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,802 @@
+[
+  {
+    "id": "001",
+    "family": "Datum",
+    "face": "Parallel",
+    "triangles": 3182,
+    "volume_mm3": 18819.3,
+    "geometry_sha256": "f68ace1e0623af84a43fd842f5c82c9e631b20eeba070984f1fdf4e5184d8586"
+  },
+  {
+    "id": "002",
+    "family": "Datum",
+    "face": "Constellation",
+    "triangles": 5474,
+    "volume_mm3": 18941.95,
+    "geometry_sha256": "cac525f59469974c3c382d16f23f110921ac9c5baf118d666ad9cc56339cf21b"
+  },
+  {
+    "id": "003",
+    "family": "Datum",
+    "face": "Sunburst",
+    "triangles": 4234,
+    "volume_mm3": 18869.07,
+    "geometry_sha256": "58ca5f711aa56f2c56cbcd2a0ff53c4322dcf704ff9117c91dcf53ee0b6cc237"
+  },
+  {
+    "id": "004",
+    "family": "Datum",
+    "face": "Honeycomb",
+    "triangles": 2782,
+    "volume_mm3": 18642.91,
+    "geometry_sha256": "9c5319ae8e1dbd684618315f36c6c1d5cb318003057325808a99e1225f16c21a"
+  },
+  {
+    "id": "005",
+    "family": "Datum",
+    "face": "Chevron",
+    "triangles": 3346,
+    "volume_mm3": 18967.84,
+    "geometry_sha256": "9f7ac95fd8db0ce2e051bf330fd6d5b675e9b29c744f1d6744902db8b77a69fd"
+  },
+  {
+    "id": "006",
+    "family": "Datum",
+    "face": "Arc",
+    "triangles": 3928,
+    "volume_mm3": 18899.5,
+    "geometry_sha256": "b0d6324a91f7213061988710ca5c02cc3d064a2a2d0e1191403e49ca1a388122"
+  },
+  {
+    "id": "007",
+    "family": "Datum",
+    "face": "Lozenge",
+    "triangles": 4826,
+    "volume_mm3": 18908.32,
+    "geometry_sha256": "f196487328e39dd9e29e19007b4176451d5027981656b38f66a468b8a00b3d16"
+  },
+  {
+    "id": "008",
+    "family": "Datum",
+    "face": "Wave",
+    "triangles": 3190,
+    "volume_mm3": 18918.73,
+    "geometry_sha256": "759ccf39073334a42088251a4113cefe08dbca3d2a808df4d1af79a242e73cd3"
+  },
+  {
+    "id": "009",
+    "family": "Datum",
+    "face": "Terrace",
+    "triangles": 2624,
+    "volume_mm3": 19032.59,
+    "geometry_sha256": "7ae42d7e4471f7f0bf0fd77bba6f31b58293017da48c856cb6857e6f0dd842f0"
+  },
+  {
+    "id": "010",
+    "family": "Datum",
+    "face": "Switchback",
+    "triangles": 3118,
+    "volume_mm3": 18974.95,
+    "geometry_sha256": "a91e7b5a1f587806da4d8a71797f60be072d96fcc33bea42496e70dc8ec02927"
+  },
+  {
+    "id": "011",
+    "family": "Pebble",
+    "face": "Parallel",
+    "triangles": 3188,
+    "volume_mm3": 37967.65,
+    "geometry_sha256": "f14c988cd13eb3d2cf1e43e214d4c02069b1dd33f4b78492d2ca605e9106e9f6"
+  },
+  {
+    "id": "012",
+    "family": "Pebble",
+    "face": "Constellation",
+    "triangles": 5478,
+    "volume_mm3": 38090.3,
+    "geometry_sha256": "e784486b5f4174a9deab7905762c42fb2a57e4a4b9c91138c9c2481613fb4e4c"
+  },
+  {
+    "id": "013",
+    "family": "Pebble",
+    "face": "Sunburst",
+    "triangles": 4240,
+    "volume_mm3": 38017.41,
+    "geometry_sha256": "19e3387b67266de65861971dc0005961bde9da91e84fb11f4e2f0e9513d9ac50"
+  },
+  {
+    "id": "014",
+    "family": "Pebble",
+    "face": "Honeycomb",
+    "triangles": 2788,
+    "volume_mm3": 37791.26,
+    "geometry_sha256": "b4718b7296320b3f45185783f373d1a78c28cbf86e4e652336f1bff499b312c4"
+  },
+  {
+    "id": "015",
+    "family": "Pebble",
+    "face": "Chevron",
+    "triangles": 3350,
+    "volume_mm3": 38116.19,
+    "geometry_sha256": "1832c0349d74d6806cdfd9c1bfc5d9858151998449cc7d9aa808426f7af2361c"
+  },
+  {
+    "id": "016",
+    "family": "Pebble",
+    "face": "Arc",
+    "triangles": 3930,
+    "volume_mm3": 38047.85,
+    "geometry_sha256": "9e40ec0993f3535310b9e51ecb9cf353b844df00ca79fa82adede40b3e5b1b05"
+  },
+  {
+    "id": "017",
+    "family": "Pebble",
+    "face": "Lozenge",
+    "triangles": 4830,
+    "volume_mm3": 38056.67,
+    "geometry_sha256": "a552c2247cd83cd6f619393a51cd4a70f010d8d25b5a4ac84401ae1df51e166b"
+  },
+  {
+    "id": "018",
+    "family": "Pebble",
+    "face": "Wave",
+    "triangles": 3196,
+    "volume_mm3": 38067.08,
+    "geometry_sha256": "ebe885c741e8d72493c0df64f28dce6dc9be06da254d8954b6b002ff196fa32c"
+  },
+  {
+    "id": "019",
+    "family": "Pebble",
+    "face": "Terrace",
+    "triangles": 2630,
+    "volume_mm3": 38180.94,
+    "geometry_sha256": "2d607e82d0180ba7464ecbccfd60930e0447175a93f7aa0f305677e5fc7e0be1"
+  },
+  {
+    "id": "020",
+    "family": "Pebble",
+    "face": "Switchback",
+    "triangles": 3122,
+    "volume_mm3": 38123.3,
+    "geometry_sha256": "3d19da70657d3b5fb7db858691d83c8b42712fc9dc672e80fe8f842140846191"
+  },
+  {
+    "id": "021",
+    "family": "Bumper",
+    "face": "Parallel",
+    "triangles": 3636,
+    "volume_mm3": 22897.47,
+    "geometry_sha256": "1d3c9976c08fdee0bfc1a96e927a0a1a78b9b73923e88d1ead4ea1801608c676"
+  },
+  {
+    "id": "022",
+    "family": "Bumper",
+    "face": "Constellation",
+    "triangles": 5928,
+    "volume_mm3": 23020.13,
+    "geometry_sha256": "dde5639f5d6e6e319b61a987d79a83678af8e4888a88d661777f2ad2e276c06c"
+  },
+  {
+    "id": "023",
+    "family": "Bumper",
+    "face": "Sunburst",
+    "triangles": 4690,
+    "volume_mm3": 22947.24,
+    "geometry_sha256": "c70ae5da1957bed25094020b8a92fe7acb3b24c74e56afb7637ac75ae677efeb"
+  },
+  {
+    "id": "024",
+    "family": "Bumper",
+    "face": "Honeycomb",
+    "triangles": 3238,
+    "volume_mm3": 22721.09,
+    "geometry_sha256": "85d11f7d4703c51ebbee951ddcabb9a2bff49e59d011e4287ffb7e92d0e6614f"
+  },
+  {
+    "id": "025",
+    "family": "Bumper",
+    "face": "Chevron",
+    "triangles": 3798,
+    "volume_mm3": 23046.02,
+    "geometry_sha256": "7856a833e7530be0f8a05cfeda0e8da65bc5319a94dada63b90ee86fb8d109dc"
+  },
+  {
+    "id": "026",
+    "family": "Bumper",
+    "face": "Arc",
+    "triangles": 4378,
+    "volume_mm3": 22977.68,
+    "geometry_sha256": "92c1eb3f24eea453921c7f23f71ca0f868f418b8511879285dc7623274416aa2"
+  },
+  {
+    "id": "027",
+    "family": "Bumper",
+    "face": "Lozenge",
+    "triangles": 5280,
+    "volume_mm3": 22986.49,
+    "geometry_sha256": "218d15cccebbec00f44ca2c40c5f41955e7380f356572e7027be80d3040812ad"
+  },
+  {
+    "id": "028",
+    "family": "Bumper",
+    "face": "Wave",
+    "triangles": 3644,
+    "volume_mm3": 22996.91,
+    "geometry_sha256": "4f67cb9dea031504027f9fb1d96fd985fb16e4fb47a587c89c7446803b09a2b6"
+  },
+  {
+    "id": "029",
+    "family": "Bumper",
+    "face": "Terrace",
+    "triangles": 3080,
+    "volume_mm3": 23110.76,
+    "geometry_sha256": "1489db03966028fb2e5fa2f0e7b8cbaf47b8c78246002f03d9595f33fcce313a"
+  },
+  {
+    "id": "030",
+    "family": "Bumper",
+    "face": "Switchback",
+    "triangles": 3572,
+    "volume_mm3": 23053.13,
+    "geometry_sha256": "694df66d3cff43e70dc2cc8b21d1d158c77c6b76947dbd8d748b19558bdd4725"
+  },
+  {
+    "id": "031",
+    "family": "Thumb",
+    "face": "Parallel",
+    "triangles": 3190,
+    "volume_mm3": 25812.31,
+    "geometry_sha256": "d8887d81a62406dfaf6c2688e2289af8230e4a3cc3be4c2db2de6f2abe67a7ea"
+  },
+  {
+    "id": "032",
+    "family": "Thumb",
+    "face": "Constellation",
+    "triangles": 5480,
+    "volume_mm3": 25934.96,
+    "geometry_sha256": "3b2b8cb5abd70370ee6c93b149230b4a52b3006eafca53cc2aee20ce1e92ab4e"
+  },
+  {
+    "id": "033",
+    "family": "Thumb",
+    "face": "Sunburst",
+    "triangles": 4242,
+    "volume_mm3": 25862.08,
+    "geometry_sha256": "e3b1baa0421e272651d9ca867c07fbbd4d1b4f2f92fad06c8717a5a9f1b972aa"
+  },
+  {
+    "id": "034",
+    "family": "Thumb",
+    "face": "Honeycomb",
+    "triangles": 2790,
+    "volume_mm3": 25635.92,
+    "geometry_sha256": "3816eb72133d038ee87599353a106b20eda23968f56bf3fb40bef57b1a651f36"
+  },
+  {
+    "id": "035",
+    "family": "Thumb",
+    "face": "Chevron",
+    "triangles": 3352,
+    "volume_mm3": 25960.85,
+    "geometry_sha256": "076d572f13cc5454adca78f915005d4960750f9e3aa7dbfb7fb34c5db1562ffe"
+  },
+  {
+    "id": "036",
+    "family": "Thumb",
+    "face": "Arc",
+    "triangles": 3932,
+    "volume_mm3": 25892.51,
+    "geometry_sha256": "2edd8aec3067a3636bf28caa62d20219388ef5c86f618a28a01ac72a21f27855"
+  },
+  {
+    "id": "037",
+    "family": "Thumb",
+    "face": "Lozenge",
+    "triangles": 4832,
+    "volume_mm3": 25901.33,
+    "geometry_sha256": "977c640cbf7aacd992166fd6bb168b8467ca39cdbe452fef2c9e8d62fa4859ef"
+  },
+  {
+    "id": "038",
+    "family": "Thumb",
+    "face": "Wave",
+    "triangles": 3198,
+    "volume_mm3": 25911.74,
+    "geometry_sha256": "e0140807ecabb3500888a96e259df37f449bcaaa9475b9623f4c09864cf8a906"
+  },
+  {
+    "id": "039",
+    "family": "Thumb",
+    "face": "Terrace",
+    "triangles": 2632,
+    "volume_mm3": 26025.6,
+    "geometry_sha256": "cf89e045221c737f6da58357e91ed67eabb1e452b477212f6f2d6f8cd99bb9d7"
+  },
+  {
+    "id": "040",
+    "family": "Thumb",
+    "face": "Switchback",
+    "triangles": 3124,
+    "volume_mm3": 25967.96,
+    "geometry_sha256": "b39b20efd2b9592166852a4644c5d06d7bc243d586956a7ed7ba2c0968ae3954"
+  },
+  {
+    "id": "041",
+    "family": "Loop",
+    "face": "Parallel",
+    "triangles": 3654,
+    "volume_mm3": 21288.84,
+    "geometry_sha256": "ce4a05dc035e880700f93462cb7af8d4c5135c448a2b8e067d7f5a49901796f7"
+  },
+  {
+    "id": "042",
+    "family": "Loop",
+    "face": "Constellation",
+    "triangles": 5944,
+    "volume_mm3": 21411.49,
+    "geometry_sha256": "8d610c793f8f51f32607756c22c263a9f88c4cd4049695597e9c93c7f20038e4"
+  },
+  {
+    "id": "043",
+    "family": "Loop",
+    "face": "Sunburst",
+    "triangles": 4706,
+    "volume_mm3": 21338.61,
+    "geometry_sha256": "ede8565cbf60c7948c2230c84565c3e3f8e4d5959dc5748062708b95003198ff"
+  },
+  {
+    "id": "044",
+    "family": "Loop",
+    "face": "Honeycomb",
+    "triangles": 3262,
+    "volume_mm3": 21112.46,
+    "geometry_sha256": "72d8fa626efdbe475204d89a23174a0fe5f76a60b921cc717f71c5f82bd7539b"
+  },
+  {
+    "id": "045",
+    "family": "Loop",
+    "face": "Chevron",
+    "triangles": 3816,
+    "volume_mm3": 21437.38,
+    "geometry_sha256": "fa77c30145005b5e17d6328bf2e2312158e2e8d72fbc97ffcdc3e0666260ef8b"
+  },
+  {
+    "id": "046",
+    "family": "Loop",
+    "face": "Arc",
+    "triangles": 4396,
+    "volume_mm3": 21369.05,
+    "geometry_sha256": "5c314767b3939e90f09af56881003f718ee003fad9926b8c47d65d76ae063e09"
+  },
+  {
+    "id": "047",
+    "family": "Loop",
+    "face": "Lozenge",
+    "triangles": 5296,
+    "volume_mm3": 21377.86,
+    "geometry_sha256": "786f0dfca91fcb4682be50fd047b0e928187ac48a23f82ce640d8243bdead6f4"
+  },
+  {
+    "id": "048",
+    "family": "Loop",
+    "face": "Wave",
+    "triangles": 3662,
+    "volume_mm3": 21388.28,
+    "geometry_sha256": "6403d0194a434c297740ec178455f8a398380d1a251ccc68a452b9224e42a9d5"
+  },
+  {
+    "id": "049",
+    "family": "Loop",
+    "face": "Terrace",
+    "triangles": 3096,
+    "volume_mm3": 21502.13,
+    "geometry_sha256": "c16fa6e5019aad0be1d7d24f4eb6c01c67e80d49d0c3c61a669e9404d22e9289"
+  },
+  {
+    "id": "050",
+    "family": "Loop",
+    "face": "Switchback",
+    "triangles": 3588,
+    "volume_mm3": 21444.5,
+    "geometry_sha256": "ad839a08dc9db842d9a49e935c9aa7bde486c7559d12e9f36c15d63352262ec3"
+  },
+  {
+    "id": "051",
+    "family": "Bracket",
+    "face": "Parallel",
+    "triangles": 4112,
+    "volume_mm3": 23563.04,
+    "geometry_sha256": "4fb74a5c4697bcd040cb5c07afec9bf5fa26ff9fa63323325f9ffacfd7a7b30a"
+  },
+  {
+    "id": "052",
+    "family": "Bracket",
+    "face": "Constellation",
+    "triangles": 6402,
+    "volume_mm3": 23685.69,
+    "geometry_sha256": "c61b23eb538eee7bf63e387212ea59ef0a711ee3b9205aef9af8d4c4ec484b33"
+  },
+  {
+    "id": "053",
+    "family": "Bracket",
+    "face": "Sunburst",
+    "triangles": 5164,
+    "volume_mm3": 23612.81,
+    "geometry_sha256": "884858b5866e5763197dce95ff593e0eb98df540c9337196744c74eacd193b49"
+  },
+  {
+    "id": "054",
+    "family": "Bracket",
+    "face": "Honeycomb",
+    "triangles": 3720,
+    "volume_mm3": 23386.65,
+    "geometry_sha256": "38a26db1ee983d3e22d8fbe7715077c7a507791295e4d99c776862b4be0f0ec5"
+  },
+  {
+    "id": "055",
+    "family": "Bracket",
+    "face": "Chevron",
+    "triangles": 4274,
+    "volume_mm3": 23711.58,
+    "geometry_sha256": "7a937bc16ec876f17bcf3c6871d8194f85042fd2a6639dde9b21603989777899"
+  },
+  {
+    "id": "056",
+    "family": "Bracket",
+    "face": "Arc",
+    "triangles": 4856,
+    "volume_mm3": 23643.24,
+    "geometry_sha256": "f66d323f4d9337cd922a8fce1968ec3391aaaa6097e12655af3d03aeda4aad1a"
+  },
+  {
+    "id": "057",
+    "family": "Bracket",
+    "face": "Lozenge",
+    "triangles": 5754,
+    "volume_mm3": 23652.06,
+    "geometry_sha256": "4b60d9569f64a39801fc650e4381a0bdc900e2c6d48bd7615377dc4742cde77b"
+  },
+  {
+    "id": "058",
+    "family": "Bracket",
+    "face": "Wave",
+    "triangles": 4120,
+    "volume_mm3": 23662.47,
+    "geometry_sha256": "75e0d8f665195090ee75d775b9629703cec8191f82ece6b7a7c6878591a3f452"
+  },
+  {
+    "id": "059",
+    "family": "Bracket",
+    "face": "Terrace",
+    "triangles": 3554,
+    "volume_mm3": 23776.33,
+    "geometry_sha256": "af4518cab0b2ac3d84c274ea94b86ad4f726681f8ef58e3458e026b1beb1018a"
+  },
+  {
+    "id": "060",
+    "family": "Bracket",
+    "face": "Switchback",
+    "triangles": 4046,
+    "volume_mm3": 23718.69,
+    "geometry_sha256": "c4bd956f8c73034bed0533c7b09180a5519cba8faa8611447a7afe7a8cac6c62"
+  },
+  {
+    "id": "061",
+    "family": "Rib",
+    "face": "Parallel",
+    "triangles": 5668,
+    "volume_mm3": 21257.4,
+    "geometry_sha256": "bca3a1e67ba2c8668663444a0cc7a0a4069d0eabb5f9e124b9b413c029690383"
+  },
+  {
+    "id": "062",
+    "family": "Rib",
+    "face": "Constellation",
+    "triangles": 7964,
+    "volume_mm3": 21380.05,
+    "geometry_sha256": "5a85181cd916bdc5fc909d86092dbd1cf36a7f6694114f7c40d9c5895146025b"
+  },
+  {
+    "id": "063",
+    "family": "Rib",
+    "face": "Sunburst",
+    "triangles": 6724,
+    "volume_mm3": 21307.16,
+    "geometry_sha256": "e3196fa16a6e243ae4cc659d63d4aa73bcec7aa5b78593fdb5c8c25b9529bd7d"
+  },
+  {
+    "id": "064",
+    "family": "Rib",
+    "face": "Honeycomb",
+    "triangles": 5284,
+    "volume_mm3": 21081.01,
+    "geometry_sha256": "e03956fba2ed2f4cd55174eb31a35325d93be72b4a947499dc8a8e57c1c65f79"
+  },
+  {
+    "id": "065",
+    "family": "Rib",
+    "face": "Chevron",
+    "triangles": 5836,
+    "volume_mm3": 21405.94,
+    "geometry_sha256": "422f3b895a301e1ac228632a878fea46a0b4db934e37efac8c012a974ae3aeb1"
+  },
+  {
+    "id": "066",
+    "family": "Rib",
+    "face": "Arc",
+    "triangles": 6412,
+    "volume_mm3": 21337.6,
+    "geometry_sha256": "bb546bcccf7f7357b36bff0f6cefcc098c5431a23d60a42a75526e4ff8884229"
+  },
+  {
+    "id": "067",
+    "family": "Rib",
+    "face": "Lozenge",
+    "triangles": 7320,
+    "volume_mm3": 21346.42,
+    "geometry_sha256": "a518ece9595b228f3419166bc30fa9bd863992bcc462492fc1da64f712f1d1d5"
+  },
+  {
+    "id": "068",
+    "family": "Rib",
+    "face": "Wave",
+    "triangles": 5676,
+    "volume_mm3": 21356.83,
+    "geometry_sha256": "44ef46d32701527796667459feeb12789fc4225cec152bc596082f79cc8a3b1b"
+  },
+  {
+    "id": "069",
+    "family": "Rib",
+    "face": "Terrace",
+    "triangles": 5116,
+    "volume_mm3": 21470.69,
+    "geometry_sha256": "7ecbb67462a4694b5dacf80c971bdbb3095c60f77a0821173b184bf293f0c3f6"
+  },
+  {
+    "id": "070",
+    "family": "Rib",
+    "face": "Switchback",
+    "triangles": 5604,
+    "volume_mm3": 21413.05,
+    "geometry_sha256": "c96f02246cbb18d2cc87808c9689f84464a8a82216667928f492b62d752361c1"
+  },
+  {
+    "id": "071",
+    "family": "Facet",
+    "face": "Parallel",
+    "triangles": 2914,
+    "volume_mm3": 30816.35,
+    "geometry_sha256": "30d864dc856ff425bffaff98790e2636150b88b73f9620612c97fdccbf14e505"
+  },
+  {
+    "id": "072",
+    "family": "Facet",
+    "face": "Constellation",
+    "triangles": 5208,
+    "volume_mm3": 30939.0,
+    "geometry_sha256": "9dba4a4fc923a9b24b6455cc640860c9cc44f14cba032503ddd12a1d07c39eaa"
+  },
+  {
+    "id": "073",
+    "family": "Facet",
+    "face": "Sunburst",
+    "triangles": 3968,
+    "volume_mm3": 30866.12,
+    "geometry_sha256": "73e6250e309a883681f8c730cc311146041d23b5eae7ccf2ac6c89f6296859d4"
+  },
+  {
+    "id": "074",
+    "family": "Facet",
+    "face": "Honeycomb",
+    "triangles": 2516,
+    "volume_mm3": 30639.96,
+    "geometry_sha256": "6ed98bb27a2c143122514fad759d447999f9b333a6441e952fda5687ad738417"
+  },
+  {
+    "id": "075",
+    "family": "Facet",
+    "face": "Chevron",
+    "triangles": 3078,
+    "volume_mm3": 30964.89,
+    "geometry_sha256": "baf03a5bc1f06c12610efc4f7e94ff01da8af87403fd69bafa2211bf68bb482c"
+  },
+  {
+    "id": "076",
+    "family": "Facet",
+    "face": "Arc",
+    "triangles": 3658,
+    "volume_mm3": 30896.55,
+    "geometry_sha256": "d1fd11553ce22b488cf8a5a9e45773c6226d4ffd619388191f825a5927e6c102"
+  },
+  {
+    "id": "077",
+    "family": "Facet",
+    "face": "Lozenge",
+    "triangles": 4558,
+    "volume_mm3": 30905.37,
+    "geometry_sha256": "b9ae280da155a87c427cb6b00d0f5eac08c4b20bf2660e70957539558169b654"
+  },
+  {
+    "id": "078",
+    "family": "Facet",
+    "face": "Wave",
+    "triangles": 2922,
+    "volume_mm3": 30915.78,
+    "geometry_sha256": "9e6ded2d0973d8dff6511407f84133e3bf5abe59d4288a9b9927c78ea2d894a4"
+  },
+  {
+    "id": "079",
+    "family": "Facet",
+    "face": "Terrace",
+    "triangles": 2356,
+    "volume_mm3": 31029.64,
+    "geometry_sha256": "a2689ecad389869d6e9d2c68973312f4022c068eaa3f4cf9f0729d82999a53ac"
+  },
+  {
+    "id": "080",
+    "family": "Facet",
+    "face": "Switchback",
+    "triangles": 2850,
+    "volume_mm3": 30972.0,
+    "geometry_sha256": "c848ebc95233904d29ad243df30eb6a56b3329ea01ef0875c9edc11b88c3babf"
+  },
+  {
+    "id": "081",
+    "family": "Scallop",
+    "face": "Parallel",
+    "triangles": 4302,
+    "volume_mm3": 22577.86,
+    "geometry_sha256": "52ae28d486c239860b37439a0f2b2307d0f64233666ebfe56325fff93aaff6d5"
+  },
+  {
+    "id": "082",
+    "family": "Scallop",
+    "face": "Constellation",
+    "triangles": 6598,
+    "volume_mm3": 22700.51,
+    "geometry_sha256": "c6ca383402022df203d98d29193d36375ecce387c0ef0aca1ffa71f61e6e5552"
+  },
+  {
+    "id": "083",
+    "family": "Scallop",
+    "face": "Sunburst",
+    "triangles": 5356,
+    "volume_mm3": 22627.63,
+    "geometry_sha256": "e5f8bcb8824e3655cd28d4f7825c9f5c66593a61bc2fe97084ac049d296f52ef"
+  },
+  {
+    "id": "084",
+    "family": "Scallop",
+    "face": "Honeycomb",
+    "triangles": 3906,
+    "volume_mm3": 22401.48,
+    "geometry_sha256": "0f56e331c303b75c9a044fc83c1afae068eb8d0c3e062d95861f7a24349906ee"
+  },
+  {
+    "id": "085",
+    "family": "Scallop",
+    "face": "Chevron",
+    "triangles": 4470,
+    "volume_mm3": 22726.4,
+    "geometry_sha256": "aa87fb689121c9acd5c5c182c684625399791563663ca64ede7e4b3febc10d52"
+  },
+  {
+    "id": "086",
+    "family": "Scallop",
+    "face": "Arc",
+    "triangles": 5048,
+    "volume_mm3": 22658.07,
+    "geometry_sha256": "65129b35d18d03505b013f068399a2ff4d467904b3a4f80f9f0fdd4693317bf8"
+  },
+  {
+    "id": "087",
+    "family": "Scallop",
+    "face": "Lozenge",
+    "triangles": 5946,
+    "volume_mm3": 22666.88,
+    "geometry_sha256": "d5bbc919d49441ac3646defc8c00180cd7cec8be5fcd4d9f142280ba461f836c"
+  },
+  {
+    "id": "088",
+    "family": "Scallop",
+    "face": "Wave",
+    "triangles": 4310,
+    "volume_mm3": 22677.3,
+    "geometry_sha256": "66ee6958afd0251d9858fa68cbb382d39d478835071536e5a49efe79b5bfbc26"
+  },
+  {
+    "id": "089",
+    "family": "Scallop",
+    "face": "Terrace",
+    "triangles": 3746,
+    "volume_mm3": 22791.15,
+    "geometry_sha256": "83655247f5ed59943ee7bbdee25776914658add0cae7c6b5500109e4680464e8"
+  },
+  {
+    "id": "090",
+    "family": "Scallop",
+    "face": "Switchback",
+    "triangles": 4238,
+    "volume_mm3": 22733.52,
+    "geometry_sha256": "1335dfd00e48b24cec934df8a36d14212f67a8094d234b14e1da0d890f92e20a"
+  },
+  {
+    "id": "091",
+    "family": "Keystone",
+    "face": "Parallel",
+    "triangles": 3172,
+    "volume_mm3": 35028.62,
+    "geometry_sha256": "66607bc5778015103b932459fb962f9e3cae688bfdddca13b8fe57cd0b09525c"
+  },
+  {
+    "id": "092",
+    "family": "Keystone",
+    "face": "Constellation",
+    "triangles": 5464,
+    "volume_mm3": 35151.27,
+    "geometry_sha256": "88bf7f59a6aee98ba1d0f95227cd7510b939e24d585af5bd7d52eff2a592f6a8"
+  },
+  {
+    "id": "093",
+    "family": "Keystone",
+    "face": "Sunburst",
+    "triangles": 4226,
+    "volume_mm3": 35078.38,
+    "geometry_sha256": "f33231978f380e31b462dce1e676b700df114c6cc7269a4276d2275c9f0a29a0"
+  },
+  {
+    "id": "094",
+    "family": "Keystone",
+    "face": "Honeycomb",
+    "triangles": 2772,
+    "volume_mm3": 34852.23,
+    "geometry_sha256": "badb7c29e1e7e2330705f4217053dd1ebd9e59578dac1d17c38f8f5d09272a2f"
+  },
+  {
+    "id": "095",
+    "family": "Keystone",
+    "face": "Chevron",
+    "triangles": 3336,
+    "volume_mm3": 35177.16,
+    "geometry_sha256": "d68929c3f86b0321a4bfe2a565e78641a33b9f21cf8ed7cc2d276360f34df88b"
+  },
+  {
+    "id": "096",
+    "family": "Keystone",
+    "face": "Arc",
+    "triangles": 3916,
+    "volume_mm3": 35108.82,
+    "geometry_sha256": "0c3bc9cce7d7a212fb627b0a821ebe43f920ecd2b19464e3429393358826078d"
+  },
+  {
+    "id": "097",
+    "family": "Keystone",
+    "face": "Lozenge",
+    "triangles": 4816,
+    "volume_mm3": 35117.63,
+    "geometry_sha256": "1c5098ed7de9cab63f75a4c937a55520801bd0ac86a832032a391afe1c5b37e5"
+  },
+  {
+    "id": "098",
+    "family": "Keystone",
+    "face": "Wave",
+    "triangles": 3180,
+    "volume_mm3": 35128.05,
+    "geometry_sha256": "4bfff0e39888b00431cfc7a400381988f6cf6ff00e527aa2a5c16b0fb7cacdfe"
+  },
+  {
+    "id": "099",
+    "family": "Keystone",
+    "face": "Terrace",
+    "triangles": 2614,
+    "volume_mm3": 35241.9,
+    "geometry_sha256": "3f31429e5801d5c29073c0cd7bdc4b36b4b6f455ae5ce430ec8bdf645d8fced2"
+  },
+  {
+    "id": "100",
+    "family": "Keystone",
+    "face": "Switchback",
+    "triangles": 3106,
+    "volume_mm3": 35184.27,
+    "geometry_sha256": "348aee7af35999022d16b7b4665c0d8c512401b06e14059aeafac9a96fb19646"
+  }
+]

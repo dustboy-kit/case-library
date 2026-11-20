@@ -44,6 +44,13 @@ def check(meta, where, base, expect_id=None):
     if meta.get("status") in ("printed", "field-tested") and not meta.get("printed"):
         err(where, "status says printed but `printed` is false")
     files = [meta.get("entry")] + [p.get("stl") for p in meta.get("print_parts", [])] + [meta.get("preview")]
+    vids = [x.get("id") for x in meta.get("variants", [])]
+    for d in {i for i in vids if vids.count(i) > 1}:
+        err(where, f"duplicate variant id `{d}`")
+    for x in meta.get("variants", []):
+        if not x.get("id") or not x.get("name") or not x.get("stl"):
+            err(where, f"variant `{x.get('id')}` needs id, name and stl")
+        files += [x.get("stl"), x.get("preview")]
     for f in filter(None, files):
         if not (base / f).is_file():
             err(where, f"file not found: {f}")
@@ -109,7 +116,7 @@ def main():
         "count": len(cases),
         "cases": [{k: c.get(k) for k in ("id", "name", "version", "status", "license", "authors", "summary",
                                          "kit", "outer_mm", "printed", "tags", "preview", "entry",
-                                         "print_parts", "hardware", "source")} for c in cases],
+                                         "print_parts", "variants", "hardware", "source")} for c in cases],
     }
     text = json.dumps(index, indent=2, ensure_ascii=False) + "\n"
     if "--write" in args:
