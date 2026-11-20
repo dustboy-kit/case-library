@@ -133,14 +133,14 @@ function Viewer3D({ item, onClose }) {
       const group = new THREE.Group(); scene.add(group);
       const loader = new STLLoader();
       let x = 0;
-      for (const url of item.stls) {
+      for (const [k, url] of item.stls.entries()) {
         const geo = await loader.loadAsync(url);
         if (stopped) return;
         geo.computeBoundingBox(); geo.computeVertexNormals();
         const b = geo.boundingBox;
         geo.translate(x - b.min.x, -(b.min.y + b.max.y) / 2, -b.min.z);
         x += b.max.x - b.min.x + 10;
-        group.add(new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: item.color, roughness: 0.6, metalness: 0.05 })));
+        group.add(new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: item.colors?.[k] || item.color, roughness: 0.6, metalness: 0.05 })));
       }
       const box = new THREE.Box3().setFromObject(group);
       const mid = box.getCenter(new THREE.Vector3()), size = box.getSize(new THREE.Vector3()).length();
@@ -270,19 +270,39 @@ function isPastel(hex) {
 }
 
 // AI illustrations of library cases (Codex image_gen, from each case's CAD render). Not photographs.
+// Each picture opens the real STLs it was drawn from in the 3D popup.
 const AI = "../docs/ai-renders/cases/";
-function AiStrip() {
-  const small = [["pebble.jpg", "Pebble / Parallel"], ["scallop.jpg", "Scallop / Parallel"], ["dbk-case.jpg", "dbk-pms7003-xiao-c3"]];
+const AI_SHOTS = [
+  { file: "pastel-family.jpg", title: "The five pastel bodies", variants: ["011", "031", "051", "071", "081"] },
+  { file: "pebble.jpg", title: "Pebble / Parallel", variants: ["011"] },
+  { file: "scallop.jpg", title: "Scallop / Parallel", variants: ["081"] },
+  { file: "dbk-case.jpg", title: "dbk-pms7003-xiao-c3", caseId: "dbk-pms7003-xiao-c3" },
+];
+function aiView(shot, cases) {
+  if (shot.caseId) { const c = cases.find((x) => x.id === shot.caseId); return c && view3d(c); }
+  const c = cases.find((x) => x.id === "dbk-pcb-prism-100");
+  const vs = (c?.variants || []).filter((v) => shot.variants.includes(v.id));
+  if (!vs.length) return null;
+  const f = filesOf(c);
+  return { eyebrow: "dbk-pcb-prism-100 · " + vs.map((v) => "№ " + v.id).join(" "), title: shot.title,
+    stls: vs.map((v) => f.base + v.stl), colors: vs.map((v) => v.color), color: vs[0].color, parts: vs.length * 2,
+    links: vs.length === 1 ? [{ href: f.base + vs[0].stl, label: "STL ↓", dl: `${c.id}-${vs[0].id}.stl` }] : [{ href: f.home, label: "case folder" }] };
+}
+function AiStrip({ cases, onOpen }) {
+  const pic = (shot, big) => {
+    const o = aiView(shot, cases);
+    const click = (e) => { if (o) { e.preventDefault(); onOpen(o); } };
+    return html`<a key=${shot.file} href=${AI + shot.file} onClick=${click} title=${o ? shot.title + " · open in 3D" : shot.title}
+      className="group relative block cursor-zoom-in overflow-hidden rounded-[7px] border border-line bg-panel">
+      <img src=${AI + shot.file} alt=${shot.title + " (AI illustration)"} loading=${big ? "eager" : "lazy"} className="block aspect-[4/3] h-full w-full object-cover" />
+      ${o ? html`<span className="absolute right-2 bottom-2 rounded-full bg-black/60 px-2 py-0.5 text-[.7rem] font-semibold tracking-wide text-white opacity-80 transition group-hover:opacity-100">3D ↻</span>` : null}</a>`;
+  };
   return html`<figure className="m-0 mb-8">
     <div className="grid gap-3 md:grid-cols-[2fr_1fr]">
-      <a href=${AI + "pastel-family.jpg"} className="block overflow-hidden rounded-[7px] border border-line bg-panel">
-        <img src=${AI + "pastel-family.jpg"} alt="The five pastel prism enclosures in a row (AI illustration)" className="block aspect-[4/3] h-full w-full object-cover" /></a>
-      <div className="grid grid-cols-3 gap-3 md:grid-cols-1">
-        ${small.map(([f, n]) => html`<a key=${f} href=${AI + f} title=${n} className="block overflow-hidden rounded-[7px] border border-line bg-panel">
-          <img src=${AI + f} alt=${n + " (AI illustration)"} loading="lazy" className="block aspect-[4/3] h-full w-full object-cover" /></a>`)}
-      </div>
+      ${pic(AI_SHOTS[0], true)}
+      <div className="grid grid-cols-3 gap-3 md:grid-cols-1">${AI_SHOTS.slice(1).map((s) => pic(s, false))}</div>
     </div>
-    <figcaption className="mt-2 text-xs text-soft">AI illustrations drawn by Codex image_gen from each case's CAD render. Not photographs; nothing shown has been printed.${" "}<a href="../docs/ai-renders/">How they were made</a></figcaption>
+    <figcaption className="mt-2 text-xs text-soft">AI illustrations drawn by Codex image_gen from each case's CAD render. Not photographs; nothing shown has been printed. Click one to turn the real STL in 3D.${" "}<a href="../docs/ai-renders/">How they were made</a></figcaption>
   </figure>`;
 }
 
@@ -325,7 +345,7 @@ function App({ data }) {
       </nav>
     </header>
 
-    <${AiStrip} />
+    <${AiStrip} cases=${cases} onOpen=${setOpen} />
 
     <div className="mb-[1.3rem] flex flex-wrap items-center gap-x-5 gap-y-[.6rem] border-y border-line py-4">
       <${Select} label="Status" value=${status} onChange=${setStatus}>
