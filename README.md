@@ -10,13 +10,17 @@
 
 <!-- The table between these markers is written by `python3 tools/gallery.py --readme`. Do not edit it by hand. -->
 <!-- cases:start -->
+**Pastel picks**: 50 pastel designs (Pebble, Thumb, Bracket, Facet, Scallop), listed first in the gallery. Click one for its STL.
+
+<p><a href="cases/dbk-pcb-prism-100/plates/011.stl"><img src="cases/dbk-pcb-prism-100/views/011.png" width="150" alt="Pebble / Parallel" title="№ 011 Pebble / Parallel"></a> <a href="cases/dbk-pcb-prism-100/plates/031.stl"><img src="cases/dbk-pcb-prism-100/views/031.png" width="150" alt="Thumb / Parallel" title="№ 031 Thumb / Parallel"></a> <a href="cases/dbk-pcb-prism-100/plates/051.stl"><img src="cases/dbk-pcb-prism-100/views/051.png" width="150" alt="Bracket / Parallel" title="№ 051 Bracket / Parallel"></a> <a href="cases/dbk-pcb-prism-100/plates/071.stl"><img src="cases/dbk-pcb-prism-100/views/071.png" width="150" alt="Facet / Parallel" title="№ 071 Facet / Parallel"></a> <a href="cases/dbk-pcb-prism-100/plates/081.stl"><img src="cases/dbk-pcb-prism-100/views/081.png" width="150" alt="Scallop / Parallel" title="№ 081 Scallop / Parallel"></a></p>
+
 | id | holds | status | outer (mm) |
 |---|---|---|---|
 | [`dbk-pcb-photo-shell`](cases/dbk-pcb-photo-shell/) | Plantower PMS7003 envelope · Carrier PCB, lying along one side of the sensor · 0.91in OLED module on the carrier PCB | concept, **not printed yet** | 56 × 44 × 19.2 |
 | [`dbk-pcb-prism-100`](cases/dbk-pcb-prism-100/) · 100 variants | Plantower PMS7003 envelope · Carrier PCB with XIAO ESP32C3, 0.91in OLED and USB-C, lying on the sensor | concept, **not printed yet** | 59 × 47 × 21.8 |
 | [`dbk-pms7003-xiao-c3`](cases/dbk-pms7003-xiao-c3/) | Plantower PMS7003 · Seeed XIAO ESP32C3, pre-soldered headers · SSD1306 128x32 0.91in OLED module | cad-fit-checked, **not printed yet** | 56 × 46 × 47 |
 
-Browse every case with its preview and downloads in [`gallery/index.html`](gallery/index.html).
+Browse all of them, with previews and downloads, in the gallery: **https://dustboy-kit.github.io/case-library/gallery/** ([`gallery/index.html`](gallery/index.html)).
 <!-- cases:end -->
 
 ![dbk-pms7003-xiao-c3](cases/dbk-pms7003-xiao-c3/renders/01-assembled.png)
