@@ -8,9 +8,14 @@
 
 ## Cases
 
+<!-- The table between these markers is written by `python3 tools/gallery.py --readme`. Do not edit it by hand. -->
+<!-- cases:start -->
 | id | holds | status | outer (mm) |
 |---|---|---|---|
-| [`dbk-pms7003-xiao-c3`](cases/dbk-pms7003-xiao-c3/) | PMS7003, XIAO ESP32C3, 0.91" OLED | cad-fit-checked, **not printed yet** | 56 × 46 × 47 |
+| [`dbk-pms7003-xiao-c3`](cases/dbk-pms7003-xiao-c3/) | Plantower PMS7003 · Seeed XIAO ESP32C3, pre-soldered headers · SSD1306 128x32 0.91in OLED module | cad-fit-checked, **not printed yet** | 56 × 46 × 47 |
+
+Browse every case with its preview and downloads in [`gallery/index.html`](gallery/index.html).
+<!-- cases:end -->
 
 ![dbk-pms7003-xiao-c3](cases/dbk-pms7003-xiao-c3/renders/01-assembled.png)
 
@@ -51,8 +56,19 @@ Before you open a PR, run:
 
 ```
 python3 tools/validate.py --write    # checks every case, rewrites index.json
+python3 tools/gallery.py --readme    # rewrites gallery/cases.js and the Cases table above
 tools/render.sh cases/<id>           # every print part exports, the fit check passes
 ```
+
+## Gallery
+
+[`gallery/index.html`](gallery/index.html) shows one card per case: preview, status, size, the parts it holds, license, and links to the STLs, the `.scad` and the case's own 3D viewer. To see it locally:
+
+```
+python3 -m http.server -b 127.0.0.1 8000    # then open http://127.0.0.1:8000/gallery/
+```
+
+Opening the file straight from disk works too. The page is Preact components with no build step; Preact and Tailwind load from a CDN (jsDelivr) at pinned versions. Its data lives in `gallery/cases.js`, written by `tools/gallery.py` from `index.json`. CI fails when that file or the README table is stale.
 
 Other issue forms:
 - **Request a case**: you have hardware and need a case drawn.
