@@ -11,7 +11,7 @@ jobs:
   metadata:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Validate cases + registry, check index.json is current
         run: python3 tools/validate.py --check-index
 
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: metadata
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: OpenSCAD dev snapshot (Manifold backend)
         run: |
           set -euo pipefail
@@ -48,7 +48,8 @@ jobs:
           echo "OPENSCADPATH=$HOME/openscad-libs" >> "$GITHUB_ENV"
       - name: Export every print part and run fit checks
         run: |
-          sudo apt-get install -y -qq xvfb >/dev/null
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb libegl1 libgl1 libopengl0 libglu1-mesa libfontconfig1 >/dev/null
           xvfb-run -a tools/render.sh
       - uses: actions/upload-artifact@v4
         with:
