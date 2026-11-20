@@ -1,0 +1,71 @@
+{
+  "id": "dbk-pcb-photo-shell",
+  "name": "DustBoy Kit PCB edition: photo-study shell",
+  "version": "0.1.0",
+  "status": "concept",
+  "license": "MIT",
+  "authors": [
+    "DustBoy Kit",
+    "Codex (AI)"
+  ],
+  "summary": "A shallow yellow cover that drops over the carrier PCB lying on the PMS7003, with a window for the OLED. Drawn from the photos of the kit; the sensor's underside stays open.",
+  "kit": "DustBoy Kit PCB edition (Tong's ESP32minipms7003 carrier board on a PMS7003)",
+  "entry": "pm25-monitor.scad",
+  "openscad": {
+    "min_version": "2026.10.11",
+    "backend": "manifold",
+    "libraries": []
+  },
+  "print_parts": [
+    {
+      "scene": "shell",
+      "stl": "stl/pm25-shell.stl"
+    }
+  ],
+  "preview": "renders/08-closed.png",
+  "outer_mm": [
+    56,
+    44,
+    19.2
+  ],
+  "hardware": [
+    {
+      "part": "Plantower PMS7003 envelope",
+      "size_mm": [
+        50,
+        38,
+        12
+      ],
+      "size_source": "photo-estimate",
+      "note": "the datasheet says 48 × 37 × 12"
+    },
+    {
+      "part": "Carrier PCB, lying along one side of the sensor",
+      "size_mm": [
+        48,
+        20,
+        1.6
+      ],
+      "size_source": "photo-estimate"
+    },
+    {
+      "part": "0.91in OLED module on the carrier PCB",
+      "size_mm": [
+        34,
+        10.5,
+        2.2
+      ],
+      "size_source": "photo-estimate"
+    }
+  ],
+  "printed": false,
+  "tags": [
+    "pm25",
+    "air-quality",
+    "pms7003",
+    "pcb-edition",
+    "photo-estimate",
+    "no-screws"
+  ],
+  "origin": "Codex helper session 01a1f652, 2026-11-20 07:19-07:21 +07 (pm25-monitor.scad, 8 scenes). Copied from the uncommitted output/visualizations/pm25-openscad; renders renamed into renders/. outer_mm is the closed stack (sensor + board + shell); the shell alone is 56 × 44 × 10."
+}

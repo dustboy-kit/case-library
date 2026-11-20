@@ -55,7 +55,9 @@ def readme_table(cases):
         if not c.get("printed"):
             status += ", **not printed yet**"
         outer = " × ".join(f"{v:g}" for v in c["outer_mm"]) if c.get("outer_mm") else "—"
-        rows.append(f"| [`{c['id']}`]({case_href(c)}) | {holds} | {status} | {outer} |")
+        n = len(c.get("variants") or [])
+        more = f" · {n} variants" if n else ""
+        rows.append(f"| [`{c['id']}`]({case_href(c)}){more} | {holds} | {status} | {outer} |")
     rows.append("")
     rows.append("Browse every case with its preview and downloads in [`gallery/index.html`](gallery/index.html).")
     return "\n".join(rows)

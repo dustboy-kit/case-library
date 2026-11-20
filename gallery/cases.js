@@ -2,8 +2,1139 @@
 // run `python3 tools/validate.py --write && python3 tools/gallery.py --readme`.
 window.CASE_INDEX = {
   "generated_from": "index.json",
-  "count": 1,
+  "count": 3,
   "cases": [
+    {
+      "id": "dbk-pcb-photo-shell",
+      "name": "DustBoy Kit PCB edition: photo-study shell",
+      "version": "0.1.0",
+      "status": "concept",
+      "license": "MIT",
+      "authors": [
+        "DustBoy Kit",
+        "Codex (AI)"
+      ],
+      "summary": "A shallow yellow cover that drops over the carrier PCB lying on the PMS7003, with a window for the OLED. Drawn from the photos of the kit; the sensor's underside stays open.",
+      "kit": "DustBoy Kit PCB edition (Tong's ESP32minipms7003 carrier board on a PMS7003)",
+      "outer_mm": [
+        56,
+        44,
+        19.2
+      ],
+      "printed": false,
+      "tags": [
+        "pm25",
+        "air-quality",
+        "pms7003",
+        "pcb-edition",
+        "photo-estimate",
+        "no-screws"
+      ],
+      "preview": "renders/08-closed.png",
+      "entry": "pm25-monitor.scad",
+      "print_parts": [
+        {
+          "scene": "shell",
+          "stl": "stl/pm25-shell.stl"
+        }
+      ],
+      "variants": null,
+      "hardware": [
+        {
+          "part": "Plantower PMS7003 envelope",
+          "size_mm": [
+            50,
+            38,
+            12
+          ],
+          "size_source": "photo-estimate",
+          "note": "the datasheet says 48 × 37 × 12"
+        },
+        {
+          "part": "Carrier PCB, lying along one side of the sensor",
+          "size_mm": [
+            48,
+            20,
+            1.6
+          ],
+          "size_source": "photo-estimate"
+        },
+        {
+          "part": "0.91in OLED module on the carrier PCB",
+          "size_mm": [
+            34,
+            10.5,
+            2.2
+          ],
+          "size_source": "photo-estimate"
+        }
+      ],
+      "source": {
+        "kind": "in-repo",
+        "path": "cases/dbk-pcb-photo-shell"
+      },
+      "viewer": "index.html"
+    },
+    {
+      "id": "dbk-pcb-prism-100",
+      "name": "DustBoy Kit PCB edition: 100 prism enclosures",
+      "version": "0.1.0",
+      "status": "concept",
+      "license": "MIT",
+      "authors": [
+        "DustBoy Kit",
+        "Codex (AI)"
+      ],
+      "summary": "One OpenSCAD file, 100 two-piece shells: ten body shapes × ten grille patterns, each a lid and base laid flat on one plate. Sized from photos of the carrier-PCB kit; nothing is fit-checked.",
+      "kit": "DustBoy Kit PCB edition (Tong's ESP32minipms7003 carrier board on a PMS7003)",
+      "outer_mm": [
+        59,
+        47,
+        21.8
+      ],
+      "printed": false,
+      "tags": [
+        "pm25",
+        "air-quality",
+        "pms7003",
+        "pcb-edition",
+        "photo-estimate",
+        "variants",
+        "no-screws"
+      ],
+      "preview": "views/001.png",
+      "entry": "cases.scad",
+      "print_parts": [
+        {
+          "scene": "plate",
+          "stl": "plates/001.stl"
+        }
+      ],
+      "variants": [
+        {
+          "id": "001",
+          "name": "Datum / Parallel",
+          "preview": "views/001.png",
+          "stl": "plates/001.stl",
+          "tags": [
+            "datum",
+            "parallel"
+          ]
+        },
+        {
+          "id": "002",
+          "name": "Datum / Constellation",
+          "preview": "views/002.png",
+          "stl": "plates/002.stl",
+          "tags": [
+            "datum",
+            "constellation"
+          ]
+        },
+        {
+          "id": "003",
+          "name": "Datum / Sunburst",
+          "preview": "views/003.png",
+          "stl": "plates/003.stl",
+          "tags": [
+            "datum",
+            "sunburst"
+          ]
+        },
+        {
+          "id": "004",
+          "name": "Datum / Honeycomb",
+          "preview": "views/004.png",
+          "stl": "plates/004.stl",
+          "tags": [
+            "datum",
+            "honeycomb"
+          ]
+        },
+        {
+          "id": "005",
+          "name": "Datum / Chevron",
+          "preview": "views/005.png",
+          "stl": "plates/005.stl",
+          "tags": [
+            "datum",
+            "chevron"
+          ]
+        },
+        {
+          "id": "006",
+          "name": "Datum / Arc",
+          "preview": "views/006.png",
+          "stl": "plates/006.stl",
+          "tags": [
+            "datum",
+            "arc"
+          ]
+        },
+        {
+          "id": "007",
+          "name": "Datum / Lozenge",
+          "preview": "views/007.png",
+          "stl": "plates/007.stl",
+          "tags": [
+            "datum",
+            "lozenge"
+          ]
+        },
+        {
+          "id": "008",
+          "name": "Datum / Wave",
+          "preview": "views/008.png",
+          "stl": "plates/008.stl",
+          "tags": [
+            "datum",
+            "wave"
+          ]
+        },
+        {
+          "id": "009",
+          "name": "Datum / Terrace",
+          "preview": "views/009.png",
+          "stl": "plates/009.stl",
+          "tags": [
+            "datum",
+            "terrace"
+          ]
+        },
+        {
+          "id": "010",
+          "name": "Datum / Switchback",
+          "preview": "views/010.png",
+          "stl": "plates/010.stl",
+          "tags": [
+            "datum",
+            "switchback"
+          ]
+        },
+        {
+          "id": "011",
+          "name": "Pebble / Parallel",
+          "preview": "views/011.png",
+          "stl": "plates/011.stl",
+          "tags": [
+            "pebble",
+            "parallel"
+          ]
+        },
+        {
+          "id": "012",
+          "name": "Pebble / Constellation",
+          "preview": "views/012.png",
+          "stl": "plates/012.stl",
+          "tags": [
+            "pebble",
+            "constellation"
+          ]
+        },
+        {
+          "id": "013",
+          "name": "Pebble / Sunburst",
+          "preview": "views/013.png",
+          "stl": "plates/013.stl",
+          "tags": [
+            "pebble",
+            "sunburst"
+          ]
+        },
+        {
+          "id": "014",
+          "name": "Pebble / Honeycomb",
+          "preview": "views/014.png",
+          "stl": "plates/014.stl",
+          "tags": [
+            "pebble",
+            "honeycomb"
+          ]
+        },
+        {
+          "id": "015",
+          "name": "Pebble / Chevron",
+          "preview": "views/015.png",
+          "stl": "plates/015.stl",
+          "tags": [
+            "pebble",
+            "chevron"
+          ]
+        },
+        {
+          "id": "016",
+          "name": "Pebble / Arc",
+          "preview": "views/016.png",
+          "stl": "plates/016.stl",
+          "tags": [
+            "pebble",
+            "arc"
+          ]
+        },
+        {
+          "id": "017",
+          "name": "Pebble / Lozenge",
+          "preview": "views/017.png",
+          "stl": "plates/017.stl",
+          "tags": [
+            "pebble",
+            "lozenge"
+          ]
+        },
+        {
+          "id": "018",
+          "name": "Pebble / Wave",
+          "preview": "views/018.png",
+          "stl": "plates/018.stl",
+          "tags": [
+            "pebble",
+            "wave"
+          ]
+        },
+        {
+          "id": "019",
+          "name": "Pebble / Terrace",
+          "preview": "views/019.png",
+          "stl": "plates/019.stl",
+          "tags": [
+            "pebble",
+            "terrace"
+          ]
+        },
+        {
+          "id": "020",
+          "name": "Pebble / Switchback",
+          "preview": "views/020.png",
+          "stl": "plates/020.stl",
+          "tags": [
+            "pebble",
+            "switchback"
+          ]
+        },
+        {
+          "id": "021",
+          "name": "Bumper / Parallel",
+          "preview": "views/021.png",
+          "stl": "plates/021.stl",
+          "tags": [
+            "bumper",
+            "parallel"
+          ]
+        },
+        {
+          "id": "022",
+          "name": "Bumper / Constellation",
+          "preview": "views/022.png",
+          "stl": "plates/022.stl",
+          "tags": [
+            "bumper",
+            "constellation"
+          ]
+        },
+        {
+          "id": "023",
+          "name": "Bumper / Sunburst",
+          "preview": "views/023.png",
+          "stl": "plates/023.stl",
+          "tags": [
+            "bumper",
+            "sunburst"
+          ]
+        },
+        {
+          "id": "024",
+          "name": "Bumper / Honeycomb",
+          "preview": "views/024.png",
+          "stl": "plates/024.stl",
+          "tags": [
+            "bumper",
+            "honeycomb"
+          ]
+        },
+        {
+          "id": "025",
+          "name": "Bumper / Chevron",
+          "preview": "views/025.png",
+          "stl": "plates/025.stl",
+          "tags": [
+            "bumper",
+            "chevron"
+          ]
+        },
+        {
+          "id": "026",
+          "name": "Bumper / Arc",
+          "preview": "views/026.png",
+          "stl": "plates/026.stl",
+          "tags": [
+            "bumper",
+            "arc"
+          ]
+        },
+        {
+          "id": "027",
+          "name": "Bumper / Lozenge",
+          "preview": "views/027.png",
+          "stl": "plates/027.stl",
+          "tags": [
+            "bumper",
+            "lozenge"
+          ]
+        },
+        {
+          "id": "028",
+          "name": "Bumper / Wave",
+          "preview": "views/028.png",
+          "stl": "plates/028.stl",
+          "tags": [
+            "bumper",
+            "wave"
+          ]
+        },
+        {
+          "id": "029",
+          "name": "Bumper / Terrace",
+          "preview": "views/029.png",
+          "stl": "plates/029.stl",
+          "tags": [
+            "bumper",
+            "terrace"
+          ]
+        },
+        {
+          "id": "030",
+          "name": "Bumper / Switchback",
+          "preview": "views/030.png",
+          "stl": "plates/030.stl",
+          "tags": [
+            "bumper",
+            "switchback"
+          ]
+        },
+        {
+          "id": "031",
+          "name": "Thumb / Parallel",
+          "preview": "views/031.png",
+          "stl": "plates/031.stl",
+          "tags": [
+            "thumb",
+            "parallel"
+          ]
+        },
+        {
+          "id": "032",
+          "name": "Thumb / Constellation",
+          "preview": "views/032.png",
+          "stl": "plates/032.stl",
+          "tags": [
+            "thumb",
+            "constellation"
+          ]
+        },
+        {
+          "id": "033",
+          "name": "Thumb / Sunburst",
+          "preview": "views/033.png",
+          "stl": "plates/033.stl",
+          "tags": [
+            "thumb",
+            "sunburst"
+          ]
+        },
+        {
+          "id": "034",
+          "name": "Thumb / Honeycomb",
+          "preview": "views/034.png",
+          "stl": "plates/034.stl",
+          "tags": [
+            "thumb",
+            "honeycomb"
+          ]
+        },
+        {
+          "id": "035",
+          "name": "Thumb / Chevron",
+          "preview": "views/035.png",
+          "stl": "plates/035.stl",
+          "tags": [
+            "thumb",
+            "chevron"
+          ]
+        },
+        {
+          "id": "036",
+          "name": "Thumb / Arc",
+          "preview": "views/036.png",
+          "stl": "plates/036.stl",
+          "tags": [
+            "thumb",
+            "arc"
+          ]
+        },
+        {
+          "id": "037",
+          "name": "Thumb / Lozenge",
+          "preview": "views/037.png",
+          "stl": "plates/037.stl",
+          "tags": [
+            "thumb",
+            "lozenge"
+          ]
+        },
+        {
+          "id": "038",
+          "name": "Thumb / Wave",
+          "preview": "views/038.png",
+          "stl": "plates/038.stl",
+          "tags": [
+            "thumb",
+            "wave"
+          ]
+        },
+        {
+          "id": "039",
+          "name": "Thumb / Terrace",
+          "preview": "views/039.png",
+          "stl": "plates/039.stl",
+          "tags": [
+            "thumb",
+            "terrace"
+          ]
+        },
+        {
+          "id": "040",
+          "name": "Thumb / Switchback",
+          "preview": "views/040.png",
+          "stl": "plates/040.stl",
+          "tags": [
+            "thumb",
+            "switchback"
+          ]
+        },
+        {
+          "id": "041",
+          "name": "Loop / Parallel",
+          "preview": "views/041.png",
+          "stl": "plates/041.stl",
+          "tags": [
+            "loop",
+            "parallel"
+          ]
+        },
+        {
+          "id": "042",
+          "name": "Loop / Constellation",
+          "preview": "views/042.png",
+          "stl": "plates/042.stl",
+          "tags": [
+            "loop",
+            "constellation"
+          ]
+        },
+        {
+          "id": "043",
+          "name": "Loop / Sunburst",
+          "preview": "views/043.png",
+          "stl": "plates/043.stl",
+          "tags": [
+            "loop",
+            "sunburst"
+          ]
+        },
+        {
+          "id": "044",
+          "name": "Loop / Honeycomb",
+          "preview": "views/044.png",
+          "stl": "plates/044.stl",
+          "tags": [
+            "loop",
+            "honeycomb"
+          ]
+        },
+        {
+          "id": "045",
+          "name": "Loop / Chevron",
+          "preview": "views/045.png",
+          "stl": "plates/045.stl",
+          "tags": [
+            "loop",
+            "chevron"
+          ]
+        },
+        {
+          "id": "046",
+          "name": "Loop / Arc",
+          "preview": "views/046.png",
+          "stl": "plates/046.stl",
+          "tags": [
+            "loop",
+            "arc"
+          ]
+        },
+        {
+          "id": "047",
+          "name": "Loop / Lozenge",
+          "preview": "views/047.png",
+          "stl": "plates/047.stl",
+          "tags": [
+            "loop",
+            "lozenge"
+          ]
+        },
+        {
+          "id": "048",
+          "name": "Loop / Wave",
+          "preview": "views/048.png",
+          "stl": "plates/048.stl",
+          "tags": [
+            "loop",
+            "wave"
+          ]
+        },
+        {
+          "id": "049",
+          "name": "Loop / Terrace",
+          "preview": "views/049.png",
+          "stl": "plates/049.stl",
+          "tags": [
+            "loop",
+            "terrace"
+          ]
+        },
+        {
+          "id": "050",
+          "name": "Loop / Switchback",
+          "preview": "views/050.png",
+          "stl": "plates/050.stl",
+          "tags": [
+            "loop",
+            "switchback"
+          ]
+        },
+        {
+          "id": "051",
+          "name": "Bracket / Parallel",
+          "preview": "views/051.png",
+          "stl": "plates/051.stl",
+          "tags": [
+            "bracket",
+            "parallel"
+          ]
+        },
+        {
+          "id": "052",
+          "name": "Bracket / Constellation",
+          "preview": "views/052.png",
+          "stl": "plates/052.stl",
+          "tags": [
+            "bracket",
+            "constellation"
+          ]
+        },
+        {
+          "id": "053",
+          "name": "Bracket / Sunburst",
+          "preview": "views/053.png",
+          "stl": "plates/053.stl",
+          "tags": [
+            "bracket",
+            "sunburst"
+          ]
+        },
+        {
+          "id": "054",
+          "name": "Bracket / Honeycomb",
+          "preview": "views/054.png",
+          "stl": "plates/054.stl",
+          "tags": [
+            "bracket",
+            "honeycomb"
+          ]
+        },
+        {
+          "id": "055",
+          "name": "Bracket / Chevron",
+          "preview": "views/055.png",
+          "stl": "plates/055.stl",
+          "tags": [
+            "bracket",
+            "chevron"
+          ]
+        },
+        {
+          "id": "056",
+          "name": "Bracket / Arc",
+          "preview": "views/056.png",
+          "stl": "plates/056.stl",
+          "tags": [
+            "bracket",
+            "arc"
+          ]
+        },
+        {
+          "id": "057",
+          "name": "Bracket / Lozenge",
+          "preview": "views/057.png",
+          "stl": "plates/057.stl",
+          "tags": [
+            "bracket",
+            "lozenge"
+          ]
+        },
+        {
+          "id": "058",
+          "name": "Bracket / Wave",
+          "preview": "views/058.png",
+          "stl": "plates/058.stl",
+          "tags": [
+            "bracket",
+            "wave"
+          ]
+        },
+        {
+          "id": "059",
+          "name": "Bracket / Terrace",
+          "preview": "views/059.png",
+          "stl": "plates/059.stl",
+          "tags": [
+            "bracket",
+            "terrace"
+          ]
+        },
+        {
+          "id": "060",
+          "name": "Bracket / Switchback",
+          "preview": "views/060.png",
+          "stl": "plates/060.stl",
+          "tags": [
+            "bracket",
+            "switchback"
+          ]
+        },
+        {
+          "id": "061",
+          "name": "Rib / Parallel",
+          "preview": "views/061.png",
+          "stl": "plates/061.stl",
+          "tags": [
+            "rib",
+            "parallel"
+          ]
+        },
+        {
+          "id": "062",
+          "name": "Rib / Constellation",
+          "preview": "views/062.png",
+          "stl": "plates/062.stl",
+          "tags": [
+            "rib",
+            "constellation"
+          ]
+        },
+        {
+          "id": "063",
+          "name": "Rib / Sunburst",
+          "preview": "views/063.png",
+          "stl": "plates/063.stl",
+          "tags": [
+            "rib",
+            "sunburst"
+          ]
+        },
+        {
+          "id": "064",
+          "name": "Rib / Honeycomb",
+          "preview": "views/064.png",
+          "stl": "plates/064.stl",
+          "tags": [
+            "rib",
+            "honeycomb"
+          ]
+        },
+        {
+          "id": "065",
+          "name": "Rib / Chevron",
+          "preview": "views/065.png",
+          "stl": "plates/065.stl",
+          "tags": [
+            "rib",
+            "chevron"
+          ]
+        },
+        {
+          "id": "066",
+          "name": "Rib / Arc",
+          "preview": "views/066.png",
+          "stl": "plates/066.stl",
+          "tags": [
+            "rib",
+            "arc"
+          ]
+        },
+        {
+          "id": "067",
+          "name": "Rib / Lozenge",
+          "preview": "views/067.png",
+          "stl": "plates/067.stl",
+          "tags": [
+            "rib",
+            "lozenge"
+          ]
+        },
+        {
+          "id": "068",
+          "name": "Rib / Wave",
+          "preview": "views/068.png",
+          "stl": "plates/068.stl",
+          "tags": [
+            "rib",
+            "wave"
+          ]
+        },
+        {
+          "id": "069",
+          "name": "Rib / Terrace",
+          "preview": "views/069.png",
+          "stl": "plates/069.stl",
+          "tags": [
+            "rib",
+            "terrace"
+          ]
+        },
+        {
+          "id": "070",
+          "name": "Rib / Switchback",
+          "preview": "views/070.png",
+          "stl": "plates/070.stl",
+          "tags": [
+            "rib",
+            "switchback"
+          ]
+        },
+        {
+          "id": "071",
+          "name": "Facet / Parallel",
+          "preview": "views/071.png",
+          "stl": "plates/071.stl",
+          "tags": [
+            "facet",
+            "parallel"
+          ]
+        },
+        {
+          "id": "072",
+          "name": "Facet / Constellation",
+          "preview": "views/072.png",
+          "stl": "plates/072.stl",
+          "tags": [
+            "facet",
+            "constellation"
+          ]
+        },
+        {
+          "id": "073",
+          "name": "Facet / Sunburst",
+          "preview": "views/073.png",
+          "stl": "plates/073.stl",
+          "tags": [
+            "facet",
+            "sunburst"
+          ]
+        },
+        {
+          "id": "074",
+          "name": "Facet / Honeycomb",
+          "preview": "views/074.png",
+          "stl": "plates/074.stl",
+          "tags": [
+            "facet",
+            "honeycomb"
+          ]
+        },
+        {
+          "id": "075",
+          "name": "Facet / Chevron",
+          "preview": "views/075.png",
+          "stl": "plates/075.stl",
+          "tags": [
+            "facet",
+            "chevron"
+          ]
+        },
+        {
+          "id": "076",
+          "name": "Facet / Arc",
+          "preview": "views/076.png",
+          "stl": "plates/076.stl",
+          "tags": [
+            "facet",
+            "arc"
+          ]
+        },
+        {
+          "id": "077",
+          "name": "Facet / Lozenge",
+          "preview": "views/077.png",
+          "stl": "plates/077.stl",
+          "tags": [
+            "facet",
+            "lozenge"
+          ]
+        },
+        {
+          "id": "078",
+          "name": "Facet / Wave",
+          "preview": "views/078.png",
+          "stl": "plates/078.stl",
+          "tags": [
+            "facet",
+            "wave"
+          ]
+        },
+        {
+          "id": "079",
+          "name": "Facet / Terrace",
+          "preview": "views/079.png",
+          "stl": "plates/079.stl",
+          "tags": [
+            "facet",
+            "terrace"
+          ]
+        },
+        {
+          "id": "080",
+          "name": "Facet / Switchback",
+          "preview": "views/080.png",
+          "stl": "plates/080.stl",
+          "tags": [
+            "facet",
+            "switchback"
+          ]
+        },
+        {
+          "id": "081",
+          "name": "Scallop / Parallel",
+          "preview": "views/081.png",
+          "stl": "plates/081.stl",
+          "tags": [
+            "scallop",
+            "parallel"
+          ]
+        },
+        {
+          "id": "082",
+          "name": "Scallop / Constellation",
+          "preview": "views/082.png",
+          "stl": "plates/082.stl",
+          "tags": [
+            "scallop",
+            "constellation"
+          ]
+        },
+        {
+          "id": "083",
+          "name": "Scallop / Sunburst",
+          "preview": "views/083.png",
+          "stl": "plates/083.stl",
+          "tags": [
+            "scallop",
+            "sunburst"
+          ]
+        },
+        {
+          "id": "084",
+          "name": "Scallop / Honeycomb",
+          "preview": "views/084.png",
+          "stl": "plates/084.stl",
+          "tags": [
+            "scallop",
+            "honeycomb"
+          ]
+        },
+        {
+          "id": "085",
+          "name": "Scallop / Chevron",
+          "preview": "views/085.png",
+          "stl": "plates/085.stl",
+          "tags": [
+            "scallop",
+            "chevron"
+          ]
+        },
+        {
+          "id": "086",
+          "name": "Scallop / Arc",
+          "preview": "views/086.png",
+          "stl": "plates/086.stl",
+          "tags": [
+            "scallop",
+            "arc"
+          ]
+        },
+        {
+          "id": "087",
+          "name": "Scallop / Lozenge",
+          "preview": "views/087.png",
+          "stl": "plates/087.stl",
+          "tags": [
+            "scallop",
+            "lozenge"
+          ]
+        },
+        {
+          "id": "088",
+          "name": "Scallop / Wave",
+          "preview": "views/088.png",
+          "stl": "plates/088.stl",
+          "tags": [
+            "scallop",
+            "wave"
+          ]
+        },
+        {
+          "id": "089",
+          "name": "Scallop / Terrace",
+          "preview": "views/089.png",
+          "stl": "plates/089.stl",
+          "tags": [
+            "scallop",
+            "terrace"
+          ]
+        },
+        {
+          "id": "090",
+          "name": "Scallop / Switchback",
+          "preview": "views/090.png",
+          "stl": "plates/090.stl",
+          "tags": [
+            "scallop",
+            "switchback"
+          ]
+        },
+        {
+          "id": "091",
+          "name": "Keystone / Parallel",
+          "preview": "views/091.png",
+          "stl": "plates/091.stl",
+          "tags": [
+            "keystone",
+            "parallel"
+          ]
+        },
+        {
+          "id": "092",
+          "name": "Keystone / Constellation",
+          "preview": "views/092.png",
+          "stl": "plates/092.stl",
+          "tags": [
+            "keystone",
+            "constellation"
+          ]
+        },
+        {
+          "id": "093",
+          "name": "Keystone / Sunburst",
+          "preview": "views/093.png",
+          "stl": "plates/093.stl",
+          "tags": [
+            "keystone",
+            "sunburst"
+          ]
+        },
+        {
+          "id": "094",
+          "name": "Keystone / Honeycomb",
+          "preview": "views/094.png",
+          "stl": "plates/094.stl",
+          "tags": [
+            "keystone",
+            "honeycomb"
+          ]
+        },
+        {
+          "id": "095",
+          "name": "Keystone / Chevron",
+          "preview": "views/095.png",
+          "stl": "plates/095.stl",
+          "tags": [
+            "keystone",
+            "chevron"
+          ]
+        },
+        {
+          "id": "096",
+          "name": "Keystone / Arc",
+          "preview": "views/096.png",
+          "stl": "plates/096.stl",
+          "tags": [
+            "keystone",
+            "arc"
+          ]
+        },
+        {
+          "id": "097",
+          "name": "Keystone / Lozenge",
+          "preview": "views/097.png",
+          "stl": "plates/097.stl",
+          "tags": [
+            "keystone",
+            "lozenge"
+          ]
+        },
+        {
+          "id": "098",
+          "name": "Keystone / Wave",
+          "preview": "views/098.png",
+          "stl": "plates/098.stl",
+          "tags": [
+            "keystone",
+            "wave"
+          ]
+        },
+        {
+          "id": "099",
+          "name": "Keystone / Terrace",
+          "preview": "views/099.png",
+          "stl": "plates/099.stl",
+          "tags": [
+            "keystone",
+            "terrace"
+          ]
+        },
+        {
+          "id": "100",
+          "name": "Keystone / Switchback",
+          "preview": "views/100.png",
+          "stl": "plates/100.stl",
+          "tags": [
+            "keystone",
+            "switchback"
+          ]
+        }
+      ],
+      "hardware": [
+        {
+          "part": "Plantower PMS7003 envelope",
+          "size_mm": [
+            50,
+            38,
+            12
+          ],
+          "size_source": "photo-estimate",
+          "note": "the datasheet says 48 × 37 × 12"
+        },
+        {
+          "part": "Carrier PCB with XIAO ESP32C3, 0.91in OLED and USB-C, lying on the sensor",
+          "size_source": "photo-estimate",
+          "note": "OLED aperture 29 × 8.5 mm, 8.8 mm off the midline"
+        }
+      ],
+      "source": {
+        "kind": "in-repo",
+        "path": "cases/dbk-pcb-prism-100"
+      },
+      "viewer": "index.html"
+    },
     {
       "id": "dbk-pms7003-xiao-c3",
       "name": "DustBoy Kit case: PMS7003 + XIAO ESP32C3 + 0.91\" OLED",
@@ -48,6 +1179,7 @@ window.CASE_INDEX = {
           "stl": "stl/dbk-case-lid.stl"
         }
       ],
+      "variants": null,
       "hardware": [
         {
           "part": "Plantower PMS7003",

@@ -45,6 +45,18 @@
         }
       }
     },
+    "variants": {
+      "type": "array",
+      "description": "Optional. Printable variants built from the same entry file, e.g. one body x grille each. The gallery shows each as its own card.",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "stl"],
+        "properties": {
+          "id": { "type": "string" }, "name": { "type": "string" }, "preview": { "type": "string" },
+          "stl": { "type": "string" }, "tags": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
     "preview": { "type": "string" },
     "outer_mm": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
     "hardware": {
